@@ -1,18 +1,31 @@
 <?php
-// Check whether we are indeed included by Piwigo.
-if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+if (!defined('PHPWG_ROOT_PATH')) {
+    die('Hacking attempt!');
+}
+
+use Phyxo\TabSheet\TabSheet;
 
 // Includes
-include_once(PHPWG_ROOT_PATH . 'admin/include/tabsheet.class.php');
-require_once(PHPWG_THEMES_PATH . 'bootstrap_darkroom/include/config.php');
+require_once(__DIR__ . '/../include/config.php');
 
-load_language('theme.lang', PHPWG_THEMES_PATH.'bootstrap_darkroom/');
+load_language('theme.lang', PHPWG_THEMES_PATH . 'simple-responsive/');
 
 // Constants
 define('THEME_ID', basename(dirname(dirname(__FILE__))));
-define('ADMIN_PATH',   get_root_url() . 'admin.php?page=theme&theme=' . THEME_ID);
+define('ADMIN_PATH', get_root_url() . 'admin.php?page=theme&theme=' . THEME_ID);
 define('TAB_SETTINGS', 'settings');
 define('TAB_ABOUT', 'about');
+define('TAB_URL', get_root_url() . 'admin/index.php?page=theme&amp;theme=simple-responsive');
 
 // Get current tab
 $page['tab'] = isset($_GET['tab']) ? $_GET['tab'] : $page['tab'] = TAB_SETTINGS;
@@ -30,12 +43,11 @@ if ($page['tab'] == TAB_SETTINGS) {
     }
 }
 // TabSheet
-$tabsheet = new tabsheet();
-$tabsheet->set_id('bsdark');
-$tabsheet->add(TAB_SETTINGS, l10n('Settings'), ADMIN_PATH . '&tab=' . TAB_SETTINGS);
-$tabsheet->add(TAB_ABOUT, l10n('About'), ADMIN_PATH . '&tab=' . TAB_ABOUT);
+$tabsheet = new TabSheet();
+$tabsheet->add(TAB_SETTINGS, l10n('Settings'), TAB_URL . '&amp;tab=' . TAB_SETTINGS);
+$tabsheet->add(TAB_ABOUT, l10n('About'), TAB_URL . '&amp;tab=' . TAB_ABOUT);
 $tabsheet->select($page['tab']);
-$tabsheet->assign();
+$template->assign(['tabsheet' => $tabsheet]);
 
 // Fetch the template.
 global $template;

@@ -1,52 +1,47 @@
 {
-  "name": "piwigo-bootstrap-darkroom",
-  "description": "A Piwigo theme based on Bootstrap 4",
-  "version": "2.3.2",
-  "keywords": [
-    "piwigo",
-    "gallery"
-  ],
-  "homepage": "https://thub.com/tkuther/piwigo-bootstrap-darkroom",
-  "author": "Thomas Kuther",
-  "contributors": [
-    "Phil Bayfield",
-    "Piwigo Translators"
-  ],
-  "scripts": {
-    "build": "npm-run-all build:bootstrap build:bootstrap-darkroom build:theme build:material build:bootswatch",
-    "build:bootstrap": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-default.scss css/bootstrap-default/bootstrap.css && postcss --config postcss.config.js --replace css/bootstrap-default/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-default/bootstrap.min.css css/bootstrap-default/bootstrap.css",
-    "build:bootstrap-darkroom": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-darkroom.scss css/bootstrap-darkroom/bootstrap.css && postcss --config postcss.config.js --replace css/bootstrap-darkroom/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-darkroom/bootstrap.min.css css/bootstrap-darkroom/bootstrap.css",
-    "build:theme": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/theme.scss theme.css",
-    "build:material": "for i in amber blue brown darkroom deep-orange deep-purple indigo light-green lime purple red teal; do node-sass --importer=node_modules/node-sass-tilde-importer --output-style expanded --source-map true --source-map-contents true --precision 6 scss/material/_${i}.scss css/material-${i}/bootstrap.css && postcss --config postcss.config.js --replace css/material-${i}/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/material-${i}/bootstrap.min.css css/material-${i}/bootstrap.css; done",
-    "build:bootswatch": "for i in cerulean cosmo cyborg darkly flatly journal litera lumen lux materia minty pulse sandstone simplex sketchy slate solar spacelab superhero united yeti; do node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootswatch/_${i}.scss css/bootswatch-${i}/bootstrap.css && postcss --config postcss.config.js --replace css/bootswatch-${i}/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootswatch-${i}/bootstrap.min.css css/bootswatch-${i}/bootstrap.css; done",
-    "build:custom": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/custom/custom.scss css/custom/bootstrap.css && postcss --config postcss.config.js --replace css/custom/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/custom/bootstrap.min.css css/custom/bootstrap.css"
-  },
-  "style": "css/bootstrap-darkroom.css",
-  "sass": "scss/bootstrap-darkroom.scss",
-  "license": "APACHE-2.0",
-  "dependencies": {
-    "bootstrap-social": "^5.1.1",
-    "font-awesome": "FortAwesome/Font-Awesome#5.0.13",
-    "jquery": ">=3.0.0",
-    "jquery-migrate": "^3.0.0",
-    "photoswipe": "4.1.2",
-    "popper.js": "^1.14.3",
-    "selectize": "0.12.4",
-    "slick-carousel": "tkuther/slick#1.6.0-pwg",
-    "typeface-pt-sans": "^0.0.35",
-    "typeface-roboto": "^0.0.35"
-  },
-  "devDependencies": {
-    "autoprefixer": "^8.3.0",
-    "bootstrap": "4.1.1",
-    "bootstrap-material-design": "4.1.1",
-    "bootswatch": "thomaspark/bootswatch#v4.1.1",
-    "clean-css-cli": "^4.1.11",
-    "node-sass": "^4.8.3",
-    "node-sass-tilde-importer": "^1.0.0",
-    "npm-run-all": "^4.1.2",
-    "postcss-cli": "^5.0.0",
-    "uglify-js": "^3.3.21",
-    "yarn": "~1.6"
-  }
+    "name": "simple-responsive",
+    "description": "A Phyxo theme based on Bootstrap 4",
+    "version": "0.1.0",
+    "keywords": [
+        "phyxo",
+        "gallery"
+    ],
+    "homepage": "https://www.phyxo.net",
+    "author": "Nicolas Roudaire",
+    "scripts": {
+        "build": "npm-run-all build:bootstrap build:bootstrap-darkroom build:theme build:material build:bootswatch",
+        "build:bootstrap": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-default.scss css/bootstrap-default/bootstrap.css && postcss --config postcss.config.js --replace css/bootstrap-default/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-default/bootstrap.min.css css/bootstrap-default/bootstrap.css",
+        "build:bootstrap-darkroom": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-darkroom.scss css/bootstrap-darkroom/bootstrap.css && postcss --config postcss.config.js --replace css/bootstrap-darkroom/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-darkroom/bootstrap.min.css css/bootstrap-darkroom/bootstrap.css",
+        "build:theme": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/theme.scss theme.css",
+        "build:material": "for i in amber blue brown darkroom deep-orange deep-purple indigo light-green lime purple red teal; do node-sass --importer=node_modules/node-sass-tilde-importer --output-style expanded --source-map true --source-map-contents true --precision 6 scss/material/_${i}.scss css/material-${i}/bootstrap.css && postcss --config postcss.config.js --replace css/material-${i}/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/material-${i}/bootstrap.min.css css/material-${i}/bootstrap.css; done",
+        "build:bootswatch": "for i in cerulean cosmo cyborg darkly flatly journal litera lumen lux materia minty pulse sandstone simplex sketchy slate solar spacelab superhero united yeti; do node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootswatch/_${i}.scss css/bootswatch-${i}/bootstrap.css && postcss --config postcss.config.js --replace css/bootswatch-${i}/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootswatch-${i}/bootstrap.min.css css/bootswatch-${i}/bootstrap.css; done",
+        "build:custom": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/custom/custom.scss css/custom/bootstrap.css && postcss --config postcss.config.js --replace css/custom/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/custom/bootstrap.min.css css/custom/bootstrap.css"
+    },
+    "style": "css/bootstrap-darkroom.css",
+    "sass": "scss/bootstrap-darkroom.scss",
+    "license": "APACHE-2.0",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.1.0",
+        "bootstrap-social": "^5.1.1",
+        "jquery": ">=3.0.0",
+        "jquery-migrate": "^3.0.0",
+        "photoswipe": "4.1.2",
+        "popper.js": "^1.14.3",
+        "selectize": "0.12.4",
+        "slick-carousel": "tkuther/slick#1.6.0-pwg",
+        "typeface-pt-sans": "^0.0.35",
+        "typeface-roboto": "^0.0.35"
+    },
+    "devDependencies": {
+        "autoprefixer": "^8.3.0",
+        "bootstrap": "4.1.1",
+        "bootstrap-material-design": "4.1.1",
+        "bootswatch": "thomaspark/bootswatch#v4.1.1",
+        "clean-css-cli": "^4.1.11",
+        "node-sass": "^4.8.3",
+        "node-sass-tilde-importer": "^1.0.0",
+        "npm-run-all": "^4.1.2",
+        "postcss-cli": "^5.0.0",
+        "uglify-js": "^3.3.21"
+    }
 }

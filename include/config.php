@@ -1,7 +1,18 @@
 <?php
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BootstrapDarkroom;
 
-class Config {
+class Config
+{
 
     const CONF_PARAM = 'bootstrap_darkroom';
     const CONF_VERSION = 20;
@@ -151,7 +162,8 @@ class Config {
 
     private $files = array();
 
-    public function __construct() {
+    public function __construct()
+    {
         global $conf;
 
         // Initialise the files array
@@ -180,11 +192,13 @@ class Config {
         $this->save();
     }
 
-    private function initFiles() {
+    private function initFiles()
+    {
         $this->files[self::KEY_CUSTOM_CSS] = PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'bootstrap_darkroom/custom.css';
     }
 
-    public function __set($key, $value) {
+    public function __set($key, $value)
+    {
         if (array_key_exists($key, $this->defaults)) {
             switch ($this->types[$key]) {
                 case self::TYPE_STRING:
@@ -203,7 +217,8 @@ class Config {
         }
     }
 
-    public function __get($key) {
+    public function __get($key)
+    {
         if (array_key_exists($key, $this->defaults)) {
             switch ($this->types[$key]) {
                 case self::TYPE_STRING:
@@ -218,29 +233,34 @@ class Config {
         }
     }
 
-    public function fromPost(array $post) {
+    public function fromPost(array $post)
+    {
         foreach (array_keys($this->defaults) as $key) {
             $this->__set($key, isset($post[$key]) ? stripslashes($post[$key]) : null);
         }
     }
 
-    public function save() {
+    public function save()
+    {
         conf_update_param(self::CONF_PARAM, json_encode($this->config));
     }
 
-    private function createDefaultConfig() {
+    private function createDefaultConfig()
+    {
         $this->config = $this->defaults;
         $this->config[self::KEY_VERSION] = self::CONF_VERSION;
     }
 
-    private function populateConfig(array $config) {
+    private function populateConfig(array $config)
+    {
         foreach (array_keys($this->defaults) as $key) {
             if (isset($config[$key])) {
                 $this->config[$key] = $config[$key];
             }
         }
     }
-    private function saveFile($key, $content) {
+    private function saveFile($key, $content)
+    {
         $file = $this->files[$key];
         $dir = dirname($file);
         if (!file_exists($dir)) {
@@ -252,8 +272,9 @@ class Config {
             file_put_contents($file, $content);
         }
     }
-                                                                                                                                                                                                   
-    private function loadFile($key) {
+
+    private function loadFile($key)
+    {
         $file = $this->files[$key];
         if (file_exists($file)) {
             return file_get_contents($file);
@@ -262,4 +283,4 @@ class Config {
         }
     }
 }
-?>
+

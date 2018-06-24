@@ -1,22 +1,22 @@
-{combine_script id='common' load='footer' require='jquery' path='admin/themes/default/js/common.js'}
+{combine_script id='common' load='footer' require='jquery' path='admin/themes/legacy/js/common.js'}
 
-{combine_script id='jquery.jgrowl' load='footer' require='jquery' path='themes/default/js/plugins/jquery.jgrowl_minimized.js'}
+{combine_script id='jquery.jgrowl' load='footer' require='jquery' path='themes/legacy/js/plugins/jquery.jgrowl_minimized.js'}
 
-{combine_script id='jquery.plupload' load='footer' require='jquery' path='themes/default/js/plugins/plupload/plupload.full.min.js'}
-{combine_script id='jquery.plupload.queue' load='footer' require='jquery' path='themes/default/js/plugins/plupload/jquery.plupload.queue/jquery.plupload.queue.min.js'}
+{combine_script id='jquery.plupload' load='footer' require='jquery' path='themes/legacy/js/plugins/plupload/plupload.full.min.js'}
+{combine_script id='jquery.plupload.queue' load='footer' require='jquery' path='themes/legacy/js/plugins/plupload/jquery.plupload.queue/jquery.plupload.queue.min.js'}
 
-{combine_css path="themes/default/js/plugins/jquery.jgrowl.css"}
-{combine_css path="themes/default/js/plugins/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css"}
+{combine_css path="themes/legacy/js/plugins/jquery.jgrowl.css"}
+{combine_css path="themes/legacy/js/plugins/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css"}
 
-{assign var="plupload_i18n" value="themes/default/js/plugins/plupload/i18n/`$lang_info.plupload_code`.js"}
+{assign var="plupload_i18n" value="themes/legacy/js/plugins/plupload/i18n/`$lang_info.plupload_code`.js"}
 {if "PHPWG_ROOT_PATH"|@constant|@cat:$plupload_i18n|@file_exists}
   {combine_script id="plupload_i18n-`$lang_info.plupload_code`" load="footer" path=$plupload_i18n require="jquery.plupload.queue"}
 {/if}
 
-{combine_script id='jquery.colorbox' load='footer' require='jquery' path='themes/default/js/plugins/jquery.colorbox.min.js'}
-{combine_css path="themes/default/js/plugins/colorbox/style2/colorbox.css"}
+{combine_script id='jquery.colorbox' load='footer' require='jquery' path='themes/legacy/js/plugins/jquery.colorbox.min.js'}
+{combine_css path="themes/legacy/js/plugins/colorbox/style2/colorbox.css"}
 
-{combine_script id='piecon' load='footer' path='themes/default/js/plugins/piecon.js'}
+{combine_script id='piecon' load='footer' path='themes/legacy/js/plugins/piecon.js'}
 
 {footer_script}
 var rootUrl = "{get_absolute_root_url()}";
@@ -87,7 +87,7 @@ jQuery(document).ready(function(){
             if (category.id == selectedValue) {
               selected = "selected";
             }
-            
+
             jQuery("<option/>")
               .attr("value", category.id)
               .attr("selected", selected)
@@ -190,15 +190,15 @@ var limit_storage = {$limit_storage};
 		// General settings
     browse_button : 'addFiles',
     container : 'uploadForm',
-    
+
 		// runtimes : 'html5,flash,silverlight,html4',
 		runtimes : 'html5',
 
 		// url : '../upload.php',
 		url : rootUrl + 'ws.php?method=pwg.images.upload&format=json',
-		
+
 		chunk_size: '{/literal}{$chunk_size}{literal}kb',
-		
+
 		filters : {
 			// Maximum file size
 			max_file_size : '1000mb',
@@ -217,12 +217,12 @@ var limit_storage = {$limit_storage};
     preinit: {
       Init: function (up, info) {
         jQuery('#uploader_container').removeAttr("title"); //remove the "using runtime" text
-        
+
         jQuery('#startUpload').on('click', function(e) {
             e.preventDefault();
             up.start();
           });
-        
+
         jQuery('#cancelUpload').on('click', function(e) {
             e.preventDefault();
             up.stop();
@@ -236,15 +236,15 @@ var limit_storage = {$limit_storage};
       QueueChanged : function(up) {
         jQuery('#startUpload').prop('disabled', up.files.length == 0);
       },
-      
+
       UploadProgress: function(up, file) {
         jQuery('#uploadingActions .progressbar').width(up.total.percent+'%');
         Piecon.setProgress(up.total.percent);
       },
-      
+
       BeforeUpload: function(up, file) {
         //console.log('[BeforeUpload]', file);
-        
+
         // hide buttons
         jQuery('#startUpload, #addFiles').hide();
         jQuery('#uploadingActions').show();
@@ -272,15 +272,15 @@ var limit_storage = {$limit_storage};
       FileUploaded: function(up, file, info) {
         // Called when file has finished uploading
         // console.log('[FileUploaded] File:', file, "Info:", info);
-        
+
         // hide item line
         jQuery('#'+file.id).hide();
-      
+
         var data = jQuery.parseJSON(info.response);
         console.log(data);
-      
+
         jQuery("#uploadedPhotos").parent("fieldset").show();
-      
+
         html = '<img src="'+data.result.src+'" class="thumbnail" title="'+data.result.name+'">';
 
         jQuery("#uploadedPhotos").prepend(html);
@@ -321,7 +321,7 @@ var limit_storage = {$limit_storage};
       UploadComplete: function(up, files) {
         // Called when all files are either uploaded or failed
         //console.log('[UploadComplete]');
-        
+
         Piecon.reset();
 
         jQuery(".selectAlbum, .selectFiles, #photoProperties, .showFieldset").hide();
@@ -397,7 +397,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
 
 #uploadProgress {width:650px; margin:10px auto;font-size:90%;}
 #progressbar {border:1px solid #ccc; background-color:#eee;}
-.ui-progressbar-value { background-image: url(admin/themes/default/images/pbar-ani.gif); height:10px;margin:-1px;border:1px solid #E78F08;}
+.ui-progressbar-value { background-image: url(admin/theme/images/pbar-ani.gif); height:10px;margin:-1px;border:1px solid #E78F08;}
 
 /* Upload Form */
 .plupload_header {display:none;}
@@ -461,7 +461,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
 <div class="infos" style="display:none"><i class="eiw-icon icon-ok"></i></div>
 <div class="errors" style="display:none"><i class="eiw-icon icon-cancel"></i><ul></ul></div>
 
-<p class="afterUploadActions" style="margin:10px; display:none;"><a href="{$another_upload_link}">{'Add another set of photos'|@translate}</a></p>
+<p class="afterUploadActions" style="margin:10px; display:none;"><a href="{$another_upload_link}">{'Add another set of photos'|translate}</a></p>
 
 {if count($setup_errors) > 0}
 <div class="errors">
@@ -480,14 +480,14 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
     <li>{$warning}</li>
     {/foreach}
   </ul>
-  <div class="hideButton" style="text-align:center"><a href="{$hide_warnings_link}">{'Hide'|@translate}</a></div>
+  <div class="hideButton" style="text-align:center"><a href="{$hide_warnings_link}">{'Hide'|translate}</a></div>
 </div>
   {/if}
 
 
 {if !empty($thumbnails)}
 <fieldset>
-  <legend>{'Uploaded Photos'|@translate}</legend>
+  <legend>{'Uploaded Photos'|translate}</legend>
   <div>
   {foreach from=$thumbnails item=thumbnail}
     <a href="{$thumbnail.link}"  class="{if isset($thumbnail.lightbox)}colorboxThumb{else}externalLink{/if}">
@@ -496,21 +496,21 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
   {/foreach}
   </div>
 </fieldset>
-<p style="margin:10px"><a href="{$another_upload_link}">{'Add another set of photos'|@translate}</a></p>
+<p style="margin:10px"><a href="{$another_upload_link}">{'Add another set of photos'|translate}</a></p>
 {else}
 
 <div id="formErrors" class="errors" style="display:none">
   <ul>
-    <li id="noAlbum">{'Select an album'|@translate}</li>
-    <li id="noPhoto">{'Select at least one photo'|@translate}</li>
+    <li id="noAlbum">{'Select an album'|translate}</li>
+    <li id="noPhoto">{'Select at least one photo'|translate}</li>
   </ul>
-  <div class="hideButton" style="text-align:center"><a href="#" id="hideErrors">{'Hide'|@translate}</a></div>
+  <div class="hideButton" style="text-align:center"><a href="#" id="hideErrors">{'Hide'|translate}</a></div>
 </div>
 
 <div style="display:none">
   <div id="addAlbumForm" style="text-align:left;padding:1em;">
     <form>
-      {'Parent album'|@translate}<br>
+      {'Parent album'|translate}<br>
       <select id ="category_parent" name="category_parent">
 {if $create_whole_gallery}
         <option value="0">------------</option>
@@ -518,8 +518,8 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
         {html_options options=$category_parent_options selected=$category_parent_options_selected}
       </select>
 
-      <br><br>{'Album name'|@translate}<br><input name="category_name" type="text"> <span id="categoryNameError"></span>
-      <br><br><br><input type="submit" value="{'Create'|@translate}"> <span id="albumCreationLoading" style="display:none"><img src="themes/default/images/ajax-loader-small.gif"></span>
+      <br><br>{'Album name'|translate}<br><input name="category_name" type="text"> <span id="categoryNameError"></span>
+      <br><br><br><input type="submit" value="{'Create'|translate}"> <span id="albumCreationLoading" style="display:none"><img src="themes/legacy/images/ajax-loader-small.gif"></span>
     </form>
   </div>
 </div>
@@ -530,7 +530,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
 {/if}
 
     <fieldset class="selectAlbum form-group">
-      <legend>{'Drop into album'|@translate}</legend>
+      <legend>{'Drop into album'|translate}</legend>
 
       <span class="albumSelection"{if count($category_options) == 0} style="display:none"{/if}>
       <select id="albumSelect" name="category" class="form-control">
@@ -539,25 +539,25 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
       </span>
 {if $create_subcategories}
       <div id="linkToCreate">
-      <span class="albumSelection">{'... or '|@translate}</span>
-      <a href="#" class="addAlbumOpen btn btn-sm btn-primary" title="{'create a new album'|@translate}">{'create a new album'|@translate}</a>
+      <span class="albumSelection">{'... or '|translate}</span>
+      <a href="#" class="addAlbumOpen btn btn-sm btn-primary" title="{'create a new album'|translate}">{'create a new album'|translate}</a>
       </div>
-{/if}      
+{/if}
     </fieldset>
 
     <fieldset class="selectFiles form-group">
-      <legend>{'Select files'|@translate}</legend>
+      <legend>{'Select files'|translate}</legend>
       <button id="addFiles" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> {'Add Photos'|translate}</button>
 
     <p id="uploadWarningsSummary">{$upload_max_filesize_shorthand}B. {$upload_file_types}. {if isset($max_upload_resolution)}{$max_upload_resolution}Mpx.{/if} {if isset($quota_summary)}{$quota_summary}{/if}
-      <a class="showInfo" href="#" title="{'Learn more'|@translate}"><i class="fas fa-info-circle"></i></a>
+      <a class="showInfo" href="#" title="{'Learn more'|translate}"><i class="fas fa-info-circle"></i></a>
     </p>
 
     <p id="uploadWarnings">
-{'Maximum file size: %sB.'|@translate|@sprintf:$upload_max_filesize_shorthand}
-{'Allowed file types: %s.'|@translate|@sprintf:$upload_file_types}
+{'Maximum file size: %sB.'|translate|@sprintf:$upload_max_filesize_shorthand}
+{'Allowed file types: %s.'|translate|@sprintf:$upload_file_types}
   {if isset($max_upload_resolution)}
-{'Approximate maximum resolution: %dM pixels (that\'s %dx%d pixels).'|@translate|@sprintf:$max_upload_resolution:$max_upload_width:$max_upload_height}
+{'Approximate maximum resolution: %dM pixels (that\'s %dx%d pixels).'|translate|@sprintf:$max_upload_resolution:$max_upload_width:$max_upload_height}
   {/if}
 {$quota_details}
     </p>
@@ -567,25 +567,25 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
       </div>
     </fieldset>
 
-    <p class="showFieldset"><a id="showPhotoProperties" href="#">{'Set Photo Properties'|@translate}</a></p>
+    <p class="showFieldset"><a id="showPhotoProperties" href="#">{'Set Photo Properties'|translate}</a></p>
 
     <fieldset id="photoProperties" class="form-group" style="display:none">
-      <legend>{'Photo Properties'|@translate}</legend>
+      <legend>{'Photo Properties'|translate}</legend>
 
       <input type="checkbox" name="set_photo_properties" style="display:none">
 
       <p>
-        {'Title'|@translate}<br>
+        {'Title'|translate}<br>
         <input type="text" class="large" name="name" value="">
       </p>
 
       <p>
-        {'Author'|@translate}<br>
+        {'Author'|translate}<br>
         <input type="text" class="large" name="author" value="">
       </p>
 
       <p>
-        {'Description'|@translate}<br>
+        {'Description'|translate}<br>
         <textarea name="description" id="description" class="description" style="margin:0"></textarea>
       </p>
 
@@ -593,18 +593,18 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
 
     <div id="uploadingActions" style="display:none">
       <button id="cancelUpload" class="btn btn-primary"><i class="fas fa-ban"></i> {'Cancel'|translate}</button>
-      
+
       <div class="big-progressbar">
         <div class="progressbar" style="width:0%"></div>
       </div>
     </div>
-      
+
     <button id="startUpload" class="btn btn-primary" disabled><i class="fas fa-upload"></i> {'Start Upload'|translate}</button>
 
 </form>
 
 <fieldset class="form-group" style="display:none">
-  <legend>{'Uploaded Photos'|@translate}</legend>
+  <legend>{'Uploaded Photos'|translate}</legend>
   <div id="uploadedPhotos"></div>
 </fieldset>
 

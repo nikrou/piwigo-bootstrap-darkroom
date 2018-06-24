@@ -2,7 +2,7 @@
     <form method="post" name="profile" action="{$F_ACTION}" id="profile" class="form-horizontal">
         <div class="card">
             <h4 class="card-header">
-                {'Registration'|@translate}
+                {'Registration'|translate}
             </h4>
             <div class="card-body">
               <fieldset>
@@ -10,43 +10,43 @@
 {$UCF_PROFILE_ADD}
 {else}
                 <div class="form-group row">
-                    <label for="username" class="col-12 col-md-3 col-form-label">{'Username'|@translate}</label>
+                    <label for="username" class="col-12 col-md-3 col-form-label">{'Username'|translate}</label>
                     <div class="col-12 col-md-4">
                         <input id="username" class="form-control-plaintext" type="text" value="{$USERNAME}" readonly/>
                     </div>
                 </div>
 {if not $SPECIAL_USER} {* can modify password + email*}
                 <div class="form-group row">
-                    <label for="mail_address" class="col-12 col-md-3 col-form-label">{'Email address'|@translate}</label>
+                    <label for="mail_address" class="col-12 col-md-3 col-form-label">{'Email address'|translate}</label>
                     <div class="col-12 col-md-4">
-                        <input type="text" name="mail_address" id="mail_address" class="form-control" value="{$EMAIL}" placeholder="{'Email address'|@translate}">
+                        <input type="text" name="mail_address" id="mail_address" class="form-control" value="{$EMAIL}" placeholder="{'Email address'|translate}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="password" class="col-12 col-md-3 col-form-label">{'Password'|@translate}</label>
+                    <label for="password" class="col-12 col-md-3 col-form-label">{'Password'|translate}</label>
                     <div class="col-12 col-md-4">
-                        <input type="password" name="password" id="password" class="form-control" value="" placeholder="{'Password'|@translate}">
+                        <input type="password" name="password" id="password" class="form-control" value="" placeholder="{'Password'|translate}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="use_new_pwd" class="col-12 col-md-3 col-form-label">{'New password'|@translate}</label>
+                    <label for="use_new_pwd" class="col-12 col-md-3 col-form-label">{'New password'|translate}</label>
                     <div class="col-12 col-md-4">
-                        <input type="password" name="use_new_pwd" id="use_new_pwd" class="form-control" value="" placeholder="{'New password'|@translate}">
+                        <input type="password" name="use_new_pwd" id="use_new_pwd" class="form-control" value="" placeholder="{'New password'|translate}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="passwordConf" class="col-12 col-md-3 col-form-label">{'Confirm Password'|@translate}</label>
+                    <label for="passwordConf" class="col-12 col-md-3 col-form-label">{'Confirm Password'|translate}</label>
                     <div class="col-12 col-md-4">
-                        <input type="password" name="passwordConf" id="passwordConf" class="form-control" value="" placeholder="{'Confirm Password'|@translate}">
+                        <input type="password" name="passwordConf" id="passwordConf" class="form-control" value="" placeholder="{'Confirm Password'|translate}">
                     </div>
                 </div>
 {/if}
-              </fieldset>   
+              </fieldset>
 {if !$ALLOW_USER_CUSTOMIZATION}
                 <div class="form-group row">
                     <div class="col-12 col-md-offset-2 col-12 col-md-10">
-                        <input class="btn btn-primary btn-raised" type="submit" name="validate" value="{'Submit'|@translate}">
-                        <input class="btn btn-primary btn-raised" type="reset" name="reset" value="{'Reset'|@translate}">
+                        <input class="btn btn-primary btn-raised" type="submit" name="validate" value="{'Submit'|translate}">
+                        <input class="btn btn-primary btn-raised" type="reset" name="reset" value="{'Reset'|translate}">
                     </div>
                 </div>
 {/if}
@@ -56,17 +56,17 @@
 {if $ALLOW_USER_CUSTOMIZATION}
         <div class="card my-3">
             <h4 class="card-header">
-                {'Preferences'|@translate}
+                {'Preferences'|translate}
             </h4>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="nb_image_page" class="col-12 col-md-3 col-form-label">{'Number of photos per page'|@translate}</label>
+                    <label for="nb_image_page" class="col-12 col-md-3 col-form-label">{'Number of photos per page'|translate}</label>
                     <div class="col-12 col-md-1">
                         <input type="text" maxlength="3" name="nb_image_page" id="nb_image_page" class="form-control" value="{$NB_IMAGE_PAGE}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="theme" class="col-12 col-md-3 col-form-label">{'Theme'|@translate}</label>
+                    <label for="theme" class="col-12 col-md-3 col-form-label">{'Theme'|translate}</label>
                     <div class="col-12 col-md-4">
                         <select class="form-control" name="theme">
 {html_options options=$template_options selected=$template_selection}
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="language" class="col-12 col-md-3 col-form-label">{'Language'|@translate}</label>
+                    <label for="language" class="col-12 col-md-3 col-form-label">{'Language'|translate}</label>
                     <div class="col-12 col-md-4">
                         <select class="form-control" name="language">
 {html_options options=$language_options selected=$language_selection}
@@ -82,12 +82,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="recent_period" class="col-12 col-md-3 col-form-label">{'Recent period'|@translate}</label>
+                    <label for="recent_period" class="col-12 col-md-3 col-form-label">{'Recent period'|translate}</label>
                     <div class="col-12 col-md-1">
                         <input type="text" size="3" maxlength="2" name="recent_period" id="recent_period" class="form-control" value="{$RECENT_PERIOD}">
                     </div>
                 </div>
-                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Expand all albums'|@translate}</label>
+                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Expand all albums'|translate}</label>
                 <div class="col-12 col-md-6">
 {foreach from=$radio_options key=option item=value}
                     <div class="form-check form-check-inline radio">
@@ -99,7 +99,7 @@
 {/foreach}
                 </div>
 {if $ACTIVATE_COMMENTS}
-                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Show number of comments'|@translate}</label>
+                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Show number of comments'|translate}</label>
                 <div class="col-12 col-md-6">
 {foreach from=$radio_options key=option item=value}
                     <div class="form-check form-check-inline radio">
@@ -111,7 +111,7 @@
 {/foreach}
                 </div>
 {/if}
-                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Show number of hits'|@translate}</label>
+                <label class="col-12 col-md-3 form-check-label float-left pl-0">{'Show number of hits'|translate}</label>
                 <div class="col-12 col-md-9">
 {foreach from=$radio_options key=option item=value}
                     <div class="form-check form-check-inline radio">
@@ -125,9 +125,9 @@
             </div>
         </div>
 
-        <input class="btn btn-primary btn-raised" type="submit" name="validate" value="{'Submit'|@translate}">
-        <input class="btn btn-info btn-raised" type="reset" name="reset" value="{'Reset'|@translate}">
-        <input class="btn btn-warning btn-raised" type="submit" name="reset_to_default" value="{'Reset to default values'|@translate}">
+        <input class="btn btn-primary btn-raised" type="submit" name="validate" value="{'Submit'|translate}">
+        <input class="btn btn-info btn-raised" type="reset" name="reset" value="{'Reset'|translate}">
+        <input class="btn btn-warning btn-raised" type="submit" name="reset_to_default" value="{'Reset to default values'|translate}">
 {/if}
         <input type="hidden" name="redirect" value="{$REDIRECT}">
         <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">

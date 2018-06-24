@@ -1,28 +1,41 @@
 <?php
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BootstrapDarkroom;
 
-class ThemeController {
+class ThemeController
+{
     private $config;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->config = new Config();
     }
 
-    public function init() {
-        load_language('theme.lang', PHPWG_THEMES_PATH.'bootstrap_darkroom/');
+    public function init()
+    {
+        load_language('theme.lang', PHPWG_THEMES_PATH . 'simple-responsive/');
 
         add_event_handler('init', array($this, 'assignConfig'));
         add_event_handler('init', array($this, 'setInitValues'));
 
         if ($this->config->bootstrap_theme === 'darkroom' || $this->config->bootstrap_theme === 'material' || $this->config->bootstrap_theme === 'bootswatch') {
-          $this->config->bootstrap_theme = 'bootstrap-darkroom';
-          $this->config->save();
-          add_event_handler('loc_begin_page_header', array($this, 'showUpgradeWarning'));
+            $this->config->bootstrap_theme = 'bootstrap-darkroom';
+            $this->config->save();
+            add_event_handler('loc_begin_page_header', array($this, 'showUpgradeWarning'));
         }
 
-        $shortname = $this->config->comments_disqus_shortname;                                                                                                                 
-        if ($this->config->comments_type == 'disqus' && !empty($shortname)) {                                                                                                  
-            add_event_handler('blockmanager_apply', array($this, 'hideMenus'));                                                                                                
+        $shortname = $this->config->comments_disqus_shortname;
+        if ($this->config->comments_type == 'disqus' && !empty($shortname)) {
+            add_event_handler('blockmanager_apply', array($this, 'hideMenus'));
         }
 
         add_event_handler('loc_begin_page_header', array($this, 'checkIfHomepage'));
@@ -36,7 +49,8 @@ class ThemeController {
         add_event_handler('loc_end_index', array($this, 'getAllThumbnailsInCategory'));
     }
 
-    public function assignConfig() {
+    public function assignConfig()
+    {
         global $template, $conf;
 
         if (array_key_exists('bootstrap_darkroom_navbar_main_style', $conf) && !empty($conf['bootstrap_darkroom_navbar_main_style'])) {
@@ -55,25 +69,29 @@ class ThemeController {
         $template->assign('theme_config', $this->config);
     }
 
-    public function showUpgradeWarning() {
+    public function showUpgradeWarning()
+    {
         global $page;
         $page['errors'][] = l10n('Your selected color style has been reset to "bootstrap-darkroom". You can select a different color style in the admin section.');
     }
 
-    public function hideMenus($menus) {
+    public function hideMenus($menus)
+    {
         $menu = &$menus[0];
 
         $mbMenu = $menu->get_block('mbMenu');
         unset($mbMenu->data['comments']);
     }
 
-    public function returnPageStart() {
+    public function returnPageStart()
+    {
         global $page, $template;
 
         $template->assign('START_ID', $page['start']);
     }
 
-    public function checkIfHomepage() {
+    public function checkIfHomepage()
+    {
         global $template, $page;
 
         if (isset($page['is_homepage'])) {
@@ -88,9 +106,9 @@ class ThemeController {
         global $template, $pwg_loaded_plugins, $conf;
 
         $template->assign(array(
-                               'loaded_plugins' => $GLOBALS['pwg_loaded_plugins'],
-                               'meta_ref_enabled' => $conf['meta_ref']
-                               ));
+            'loaded_plugins' => $GLOBALS['pwg_loaded_plugins'],
+            'meta_ref_enabled' => $conf['meta_ref']
+        ));
         if (array_key_exists('bootstrap_darkroom_core_js_in_header', $conf)) {
             $template->assign('bootstrap_darkroom_core_js_in_header', $conf['bootstrap_darkroom_core_js_in_header']);
         } else {
@@ -98,41 +116,44 @@ class ThemeController {
         }
 
         if (isset($pwg_loaded_plugins['language_switch'])) {
-            add_event_handler('loc_end_search', 'language_controler_flags', 95 );
-            add_event_handler('loc_end_identification', 'language_controler_flags', 95 );
-            add_event_handler('loc_end_tags', 'language_controler_flags', 95 );
-            add_event_handler('loc_begin_about', 'language_controler_flags', 95 );
-            add_event_handler('loc_end_register', 'language_controler_flags', 95 );
-            add_event_handler('loc_end_password', 'language_controler_flags', 95 );
+            add_event_handler('loc_end_search', 'language_controler_flags', 95);
+            add_event_handler('loc_end_identification', 'language_controler_flags', 95);
+            add_event_handler('loc_end_tags', 'language_controler_flags', 95);
+            add_event_handler('loc_begin_about', 'language_controler_flags', 95);
+            add_event_handler('loc_end_register', 'language_controler_flags', 95);
+            add_event_handler('loc_end_password', 'language_controler_flags', 95);
         }
 
         if (isset($pwg_loaded_plugins['exif_view'])) {
-            load_language('lang.exif', PHPWG_PLUGINS_PATH.'exif_view/');
+            load_language('lang.exif', PHPWG_PLUGINS_PATH . 'exif_view/');
         }
     }
 
-    public function exifReplacements($exif) {
+    public function exifReplacements($exif)
+    {
         global $conf;
 
         if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $conf)) {
             foreach ($conf['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
-               if (is_array($exif) && array_key_exists($tag, $exif)) {
-                   $exif[$tag] = str_replace($replacement[0], $replacement[1], $exif[$tag]);
-               }
+                if (is_array($exif) && array_key_exists($tag, $exif)) {
+                    $exif[$tag] = str_replace($replacement[0], $replacement[1], $exif[$tag]);
+                }
             }
         }
         return $exif;
     }
 
     // register additional template files
-    public function registerPictureTemplates() {
+    public function registerPictureTemplates()
+    {
         global $template;
 
-        $template->set_filenames(array('picture_nav'=>'picture_nav.tpl'));
+        $template->set_filenames(array('picture_nav' => 'picture_nav.tpl'));
         $template->assign_var_from_handle('PICTURE_NAV', 'picture_nav');
     }
 
-    public function stripBreadcrumbs() {
+    public function stripBreadcrumbs()
+    {
         global $page, $template;
 
         $l_sep = $template->get_template_vars('LEVEL_SEPARATOR');
@@ -163,27 +184,24 @@ class ThemeController {
 
     public function getAllThumbnailsInCategory()
     {
-        global $template, $conf, $user, $page;
+        global $template, $conf, $user, $page, $conn;
 
-        include_once(PHPWG_ROOT_PATH.'/include/functions_metadata.inc.php');
+        include_once(PHPWG_ROOT_PATH . '/include/functions_metadata.inc.php');
 
         if (!$page['items'] || ($page['section'] == 'categories' && !isset($page['category']))) {
             return;
         }
 
         // select all pictures for this category
-        $query = '
-            SELECT *
-            FROM '.IMAGES_TABLE.'
-            WHERE id IN ('.implode(',', $page['items']).')
-            ORDER BY FIELD(id, '.implode(',', $page['items']).')
-            ;';
-
-        $result = pwg_query($query);
+        $query = 'SELECT * FROM ' . IMAGES_TABLE;
+        $query .= ' WHERE id ' . $conn->in($page['items']);
+            
+        // ORDER BY FIELD(id, ' . implode(',', $page['items']) . ')
+        // @TODO: find a way to add that if really needed
+        $result = $conn->db_query($query);
 
         $pictures = array();
-        while ($row = pwg_db_fetch_assoc($result))
-        {
+        while ($row = $conn->db_fetch_assoc($result)) {
             $pictures[] = $row;
         }
 
@@ -196,25 +214,24 @@ class ThemeController {
                 $exif_mapping = $conf['bootstrap_darkroom_ps_exif_mapping'];
             } else {
                 $exif_mapping = array(
-                                      'date_creation' => 'DateTimeOriginal',
-                                      'make'          => 'Make',
-                                      'model'         => 'Model',
-                                      'lens'          => 'UndefinedTag:0xA434',
-                                      'shutter_speed' => 'ExposureTime',
-                                      'iso'           => 'ISOSpeedRatings',
-                                      'apperture'     => 'FNumber',
-                                      'focal_length'  => 'FocalLength',
-                                     );
+                    'date_creation' => 'DateTimeOriginal',
+                    'make' => 'Make',
+                    'model' => 'Model',
+                    'lens' => 'UndefinedTag:0xA434',
+                    'shutter_speed' => 'ExposureTime',
+                    'iso' => 'ISOSpeedRatings',
+                    'apperture' => 'FNumber',
+                    'focal_length' => 'FocalLength',
+                );
             }
         }
 
-        foreach ($pictures as $row)
-        {
+        foreach ($pictures as $row) {
             $url = duplicate_picture_url(
                 array(
                     'image_id' => $row['id'],
                     'image_file' => $row['file'],
-                   ),
+                ),
                 array('start')
             );
 
@@ -227,13 +244,13 @@ class ThemeController {
                 'URL' => $url,
                 'DESCRIPTION' => htmlspecialchars(strip_tags($desc)),
                 'src_image' => new \SrcImage($row),
-                'SIZE' => $row['width'].'x'.$row['height'],
+                'SIZE' => $row['width'] . 'x' . $row['height'],
                 'PATH' => $row['path'],
                 'DATE_CREATED' => $row['date_creation'],
             ));
 
             if ($theme_config->photoswipe_metadata) {
-                $tpl_var = array_merge($tpl_var, array (
+                $tpl_var = array_merge($tpl_var, array(
                     'EXIF' => get_exif_data($row['path'], $exif_mapping),
                 ));
 
@@ -253,15 +270,13 @@ class ThemeController {
         $template->assign('thumbnails', $tpl_thumbnails_var);
 
         $template->assign(array(
-            'derivative_params_square' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type( IMG_SQUARE ) ),
-            'derivative_params_medium' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type( IMG_MEDIUM ) ),
-            'derivative_params_large' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type( IMG_LARGE ) ),
-            'derivative_params_xxlarge' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type( IMG_XXLARGE ) ),
+            'derivative_params_square' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_SQUARE)),
+            'derivative_params_medium' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_MEDIUM)),
+            'derivative_params_large' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_LARGE)),
+            'derivative_params_xxlarge' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_XXLARGE)),
         ));
 
         unset($tpl_thumbnails_var, $pictures);
     }
-
 }
 
-?>

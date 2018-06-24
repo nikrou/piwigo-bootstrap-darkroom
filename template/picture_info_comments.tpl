@@ -18,12 +18,12 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       <ul class="nav nav-pills p-2" role="tablist">
     {if $COMMENT_COUNT > 0}
         <li class="nav-item">
-          <a class="nav-link active" href="#viewcomments" data-toggle="pill" aria-controls="viewcomments">{$COMMENT_COUNT|@translate_dec:'%d comment':'%d comments'}</a>
+          <a class="nav-link active" href="#viewcomments" data-toggle="pill" aria-controls="viewcomments">{$COMMENT_COUNT|translate_dec:'%d comment':'%d comments'}</a>
         </li>
     {/if}
     {if isset($comment_add)}
         <li class="nav-item">
-          <a class="nav-link{if $COMMENT_COUNT == 0} active{/if}" href="#addcomment" data-toggle="pill" aria-controls="addcomment">{'Add a comment'|@translate}</a>
+          <a class="nav-link{if $COMMENT_COUNT == 0} active{/if}" href="#addcomment" data-toggle="pill" aria-controls="addcomment">{'Add a comment'|translate}</a>
         </li>
     {/if}
       </ul>
@@ -33,7 +33,7 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         {include file='comment_list.tpl'}
         {if !empty($navbar) }
         <div class="row justify-content-center">
-          {include file='navigation_bar.tpl' fragment='comments'|@get_extent:'navbar'}
+          {include file='navigation_bar.tpl' fragment='comments'}
         </div>
         {/if}
       </div>
@@ -43,28 +43,28 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
           <form method="post" action="{$comment_add.F_ACTION}">
       {if $comment_add.SHOW_AUTHOR}
             <div class="form-group">
-              <label for="author">{'Author'|@translate}{if $comment_add.AUTHOR_MANDATORY} ({'mandatory'|@translate}){/if} :</label>
+              <label for="author">{'Author'|translate}{if $comment_add.AUTHOR_MANDATORY} ({'mandatory'|translate}){/if} :</label>
               <input class="form-control" type="text" name="author" id="author" value="{$comment_add.AUTHOR}">
             </div>
       {/if}
       {if $comment_add.SHOW_EMAIL}
             <div class="form-group">
-              <label for="email">{'Email address'|@translate}{if $comment_add.EMAIL_MANDATORY} ({'mandatory'|@translate}){/if} :</label>
+              <label for="email">{'Email address'|translate}{if $comment_add.EMAIL_MANDATORY} ({'mandatory'|translate}){/if} :</label>
               <input class="form-control" type="text" name="email" id="email" value="{$comment_add.EMAIL}">
             </div>
       {/if}
       {if $comment_add.SHOW_WEBSITE}
             <div class="form-group">
-              <label for="website_url">{'Website'|@translate} :</label>
+              <label for="website_url">{'Website'|translate} :</label>
               <input class="form-control" type="text" name="website_url" id="website_url" value="{$comment_add.WEBSITE_URL}">
             </div>
       {/if}
             <div class="form-group">
-              <label for="contentid">{'Comment'|@translate} ({'mandatory'|@translate}) :</label>
+              <label for="contentid">{'Comment'|translate} ({'mandatory'|translate}) :</label>
               <textarea class="form-control" name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea>
             </div>
             <input type="hidden" name="key" value="{$comment_add.KEY}">
-            <button type="submit" class="btn btn-primary btn-raised">{'Submit'|@translate}</button>
+            <button type="submit" class="btn btn-primary btn-raised">{'Submit'|translate}</button>
           </form>
         </div>
       </div>

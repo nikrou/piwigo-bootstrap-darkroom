@@ -1,7 +1,7 @@
-{combine_css path="themes/bootstrap_darkroom/node_modules/photoswipe/dist/photoswipe.css" order=-11}
-{combine_css path="themes/bootstrap_darkroom/node_modules/photoswipe/dist/default-skin/default-skin.css" order=-12}
-{combine_script id="photoswipe" require="jquery" path="themes/bootstrap_darkroom/node_modules/photoswipe/dist/photoswipe.min.js" load="footer"}
-{combine_script id="photoswipe.ui" require="photoswipe" path="themes/bootstrap_darkroom/node_modules/photoswipe/dist/photoswipe-ui-default.min.js" load="footer"}
+{combine_css path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe.css" order=-11}
+{combine_css path="themes/simple-responsive/node_modules/photoswipe/dist/default-skin/default-skin.css" order=-12}
+{combine_script id="photoswipe" require="jquery" path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe.min.js" load="footer"}
+{combine_script id="photoswipe.ui" require="photoswipe" path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe-ui-default.min.js" load="footer"}
 {footer_script require='jquery' require="photoswipe.ui"}{strip}
 var selector = '{$selector}';
 
@@ -171,7 +171,7 @@ function startPhotoSwipe(idx) {
         });
 
         photoSwipe.listen('gettingData', function(index, item) {
-            if(!item.is_video) { 
+            if(!item.is_video) {
               if( useLargeImages ) {
                   item.src = item.xlargeImage.src;
                   item.w = item.xlargeImage.w;
@@ -234,7 +234,7 @@ function startPhotoSwipe(idx) {
            removeVideo();
         });
 
-        photoSwipe.listen('resize', function() { 
+        photoSwipe.listen('resize', function() {
            if ($('.pswp-video-modal').length > 0) {
               var vsize = setVideoSize(photoSwipe.currItem, photoSwipe.viewportSize);
               console.log('PhotoSwipe resize in action. Setting video size to ' + vsize.w + 'x' + vsize.h);
@@ -249,7 +249,7 @@ function startPhotoSwipe(idx) {
     });
 
     function removeVideo() {
-        if ($('.pswp-video-modal').length > 0) { 
+        if ($('.pswp-video-modal').length > 0) {
             if ($('#pswp-video').length > 0) {
                 $('#pswp-video')[0].pause();
                 $('#pswp-video')[0].src = "";
@@ -264,7 +264,7 @@ function startPhotoSwipe(idx) {
             }
         }
     }
- 
+
     function detectVideo(photoSwipe) {
         var is_video = photoSwipe.currItem.is_video;
         if (is_video) {
@@ -318,7 +318,7 @@ function startPhotoSwipe(idx) {
             });
         }
     }
- 
+
     function updateVideoPosition(o, w, h) {
         var item = o.currItem;
         var vp = o.viewportSize;
