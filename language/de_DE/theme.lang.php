@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2014 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Related tags'] = 'Verwandte Tags';
 $lang['Enabled'] = 'Aktiviert';
 $lang['Disabled'] = 'Deaktiviert';
@@ -37,7 +26,7 @@ $lang['Infinite looping'] = 'Endlose Wiederholung';
 $lang['Endlessly scroll through album images'] = 'Erlaubt unendliches Durchblättern der Bilder im Album';
 $lang['Center mode'] = 'Mittige Ausrichtung';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Zeigt das aktuelle Bild in der Mitte des Karusells. Funktioniert am besten mit aktivierter endloser Wiederholung.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Aktiviere die PhotoSwipe Vollbild-Diaschau. Deaktivieren, falls Plugins wie Fotorama oder die Standard-Diaschau von Piwigo bevorzugt werden.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Aktiviere die PhotoSwipe Vollbild-Diaschau. Deaktivieren, falls Plugins wie Fotorama oder die Standard-Diaschau von Phyxo bevorzugt werden.';
 $lang['Autoplay interval'] = 'Bildwechsel-Interval';
 $lang['milliseconds'] = 'Millisekunden';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Zeige einen Jumbotron-Banner auf den Kategorie-Seiten.';
@@ -63,7 +52,7 @@ $lang['Show image caption'] = 'Zeige Bildunterschrift';
 $lang['from'] = 'von';
 $lang['Site logo'] = 'Logo der Seite';
 $lang['Display a site logo image instead of plain text'] = 'Zeige ein Logo-Bild anstatt des Textes';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Der Pfad zur Bilddatei, relativ zum Piwigo-Installationsverzeichnis';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Der Pfad zur Bilddatei, relativ zum Phyxo-Installationsverzeichnis';
 $lang['directly in the navigation bar'] = 'direkt in der Navigationsleiste';
 $lang['Social integration'] = 'Social Integration';
 $lang['Basic'] = 'Basic';

@@ -53,7 +53,6 @@
                         <option value="bootswatch-superhero"{if $theme_config->bootstrap_theme == 'bootswatch-superhero'} selected="selected"{/if}>Bootswatch Superhero</option>
                         <option value="bootswatch-united"{if $theme_config->bootstrap_theme == 'bootswatch-united'} selected="selected"{/if}>Bootswatch United</option>
                         <option value="bootswatch-yeti"{if $theme_config->bootstrap_theme == 'bootswatch-yeti'} selected="selected"{/if}>Bootswatch Yeti</option>
-                        <option value="custom"{if $theme_config->bootstrap_theme == 'custom'} selected="selected"{/if}>Custom</option>
                     </select>
                 </li>
             <ul>
@@ -106,7 +105,7 @@
                         {'Path'|translate}
                         <input type="text" name="logo_image_path" size="50" {if $theme_config->logo_image_path != ""}value="{$theme_config->logo_image_path}"{else}placeholder="relative/path/to/image"{/if}>
                     </label>
-                    <span class="info">{'The path to the image, relative to your Piwigo installation folder'|translate}</span>
+                    <span class="info">{'The path to the image, relative to your Phyxo installation folder'|translate}</span>
                 </li>
             </ul>
         </fieldset>
@@ -280,7 +279,7 @@
                         <input type="checkbox" name="photoswipe"{if $theme_config->photoswipe} checked="checked"{/if}>
                         {'Enabled'|translate}
                     </label>
-                    <span class="info">{'Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'|translate}</span>
+                    <span class="info">{'Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'|translate}</span>
                 </li>
                 <li>
                     <label labelfor="photoswipe_interval">{'Autoplay interval'|translate}</label>
@@ -313,8 +312,8 @@
             <ul>
                 <li>
                     <label class="radio">
-                        <input type="radio" name="comments_type" value="piwigo"{if $theme_config->comments_type == 'piwigo'} checked="checked"{/if} />
-                        {'Piwigo'|translate}
+                        <input type="radio" name="comments_type" value="phyxo"{if $theme_config->comments_type == 'phyxo'} checked="checked"{/if} />
+                        {'Phyxo'|translate}
                     </label>
                     <label class="radio">
                         <input id="comments_radio_disqus" type="radio" name="comments_type" value="disqus"{if $theme_config->comments_type == 'disqus'} checked="checked"{/if} />

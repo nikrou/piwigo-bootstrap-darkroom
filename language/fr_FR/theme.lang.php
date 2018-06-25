@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2014 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Enabled'] = 'Activé';
 $lang['Disabled'] = 'Désactivé';
 $lang['Color theme'] = 'Thème';
@@ -36,7 +25,7 @@ $lang['Infinite looping'] = 'Boucle infinie';
 $lang['Endlessly scroll through album images'] = 'Permet le défilement infini à travers les photos de l\'album.';
 $lang['Center mode'] = 'Mode de centrage';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Affiche l\'image actuelle dans le centre des carrousels. Fonctionne mieux avec la répétition sans fin activée.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Activer le diaporama PhotoSwipe en plein écran. Désactiver si vous préférez des plugins comme Fotorama ou le diaporama de Piwigo.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Activer le diaporama PhotoSwipe en plein écran. Désactiver si vous préférez des plugins comme Fotorama ou le diaporama de Phyxo.';
 $lang['Autoplay interval'] = 'Intervalle de lecture automatique';
 $lang['milliseconds'] = 'millisecondes';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Afficher un bandeau Jumbotron sur les pages de catégories.';
@@ -62,7 +51,7 @@ $lang['Show image caption'] = 'Afficher la légende des images.';
 $lang['from'] = 'de';
 $lang['Site logo'] = 'Logo du site';
 $lang['Display a site logo image instead of plain text'] = 'Affiche le logo du site au lieu du nom';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Le chemin d\'accès à l\'image, par rapport à votre dossier d\'installation Piwigo.';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Le chemin d\'accès à l\'image, par rapport à votre dossier d\'installation Phyxo.';
 $lang['directly in the navigation bar'] = 'directement dans la barre de navigation.';
 $lang['This setting is overridden by Bootstrap Darkroom'] = 'Ce paramètre est remplacé par Bootstrap Darkroom.';
 $lang['Hides the top menu and jumbotron containing the page title and banner'] = 'Masque le menu principal et le jumbotron contenant le titre et la bannière de la page.';

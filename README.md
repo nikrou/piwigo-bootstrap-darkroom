@@ -30,7 +30,7 @@ A mobile-ready [Phyxo](http://www.phyxo.net) theme based on [Piwigo Bootstrap Da
 
 -   Use the Phyxo built-in plungin manager (preferred)
 -   or git clone and move to phyxo/themes/simple-responsive
--   or download from https://ext.phyxo.net/extension_view.php?eid=NNN
+-   or download from https://ext.phyxo.net/extension_view.php?eid=5
 
 2.  Enable Simple Responsive
 

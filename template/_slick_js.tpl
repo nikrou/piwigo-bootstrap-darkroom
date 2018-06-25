@@ -1,7 +1,5 @@
-{* @TODO: include from sass *}
-{combine_css path="themes/simple-responsive/node_modules/slick-carousel/slick/slick.css" order=-22}
-{combine_css path="themes/simple-responsive/node_modules/slick-carousel/slick/slick-theme.css" order=-21}
-{combine_script id="slick.carousel" require="jquery" path="themes/simple-responsive/node_modules/slick-carousel/slick/slick.min.js" load="footer"}
+{combine_css path="themes/simple-responsive/css/slick.css" order=-22}
+{combine_script id="slick.carousel" require="jquery" path="themes/simple-responsive/js/slick.min.js" load="footer"}
 {footer_script require='jquery' require="slick.carousel"}{strip}
 $(document).ready(function(){
   $('#thumbnailCarousel').slick({

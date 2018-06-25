@@ -1,2 +1,13 @@
 node_modules
 css
+.dist
+target
+js/bootstrap-material-design.min.js
+js/bootstrap.min.js
+js/jquery-migrate.min.js
+js/jquery.min.js
+js/photoswipe-ui-default.min.js
+js/photoswipe.min.js
+js/popper.min.js
+js/selectize.min.js
+js/slick.min.js

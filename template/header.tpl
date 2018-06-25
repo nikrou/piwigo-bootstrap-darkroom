@@ -48,26 +48,23 @@
 	{if isset($U_CANONICAL)}
 	    <link rel="canonical" href="{$U_CANONICAL}">
 	{/if}
-	{if not empty($page_refresh)}
-	    <meta http-equiv="refresh" content="{$page_refresh.TIME};url={$page_refresh.U_REFRESH}">
-	{/if}
 
 	{strip}
 	{if $theme_config->bootstrap_theme} {* see https://github.com/tkuther/piwigo-bootstrap-darkroom/issues/104 *}
-	    {combine_css path="themes/simple-responsive/css/{$theme_config->bootstrap_theme}/bootstrap.min.css" order=-20}
+	    {combine_css path="themes/simple-responsive/css/{$theme_config->bootstrap_theme}.css" order=-20}
 	{else}
-	    {combine_css path="themes/simple-responsive/css/bootstrap-default/bootstrap.min.css" order=-20}
+	    {combine_css path="themes/simple-responsive/css/bootstrap-default.css" order=-20}
 	{/if}
 	{if $theme_config->bootstrap_theme == 'bootstrap-darkroom' || $theme_config->bootstrap_theme == 'material-darkroom'}
-	    {combine_css path="themes/simple-responsive/node_modules/typeface-pt-sans/index.css" order=-19}
+	    {combine_css path="themes/simple-responsive/css/typeface.css" order=-19}
 	{elseif (0 === strpos($theme_config->bootstrap_theme, 'material')) || $theme_config->bootstrap_theme == 'bootstrap-default'}
-	    {combine_css path="themes/simple-responsive/node_modules/typeface-roboto/index.css" order=-19}
+	    {combine_css path="themes/simple-responsive/css/typeface.css" order=-19}
 	{/if}
 	{combine_css path='themes/simple-responsive/assets/photography-icons/css/PhotographyIcons.css' order=-13}
-	{combine_css path='themes/simple-responsive/node_modules/bootstrap-social/bootstrap-social.css' order=-12}
+	{combine_css path='themes/simple-responsive/css/bootstrap-social.css' order=-12}
 	{foreach from=$themes item=theme}
 	    {if $theme.load_css}
-		{combine_css path="themes/`$theme.id`/theme.css" order=-10}
+		{combine_css path="themes/`$theme.id`/css/theme.css" order=-10}
 	    {/if}
 	    {if !empty($theme.local_head)}{include file=$theme.local_head load_css=$theme.load_css}{/if}
 	{/foreach}
@@ -80,15 +77,15 @@
 	{else}
 	    {assign var=loc value="footer"}
 	{/if}
-	{combine_script id='jquery' path='themes/simple-responsive/node_modules/jquery/dist/jquery.min.js' load=$loc}
-	{combine_script id='jquery-migrate' require='jquery' path='themes/simple-responsive/node_modules/jquery-migrate/dist/jquery-migrate.min.js' load=$loc}
+	{combine_script id='jquery' path='themes/simple-responsive/js/jquery.min.js' load=$loc}
+	{combine_script id='jquery-migrate' require='jquery' path='themes/simple-responsive/js/jquery-migrate.min.js' load=$loc}
 	{combine_script id='jquery.ajaxmanager' require='jquery' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
 	{combine_script id='thumbnails.loader' require='jquery.ajaxmanager' path='themes/legacy/js/thumbnails.loader.js' load='footer'}
-	{combine_script id='popper.js' require='jquery' path='themes/simple-responsive/node_modules/popper.js/dist/umd/popper.min.js' load=$loc}
+	{combine_script id='popper.js' require='jquery' path='themes/simple-responsive/js/popper.min.js' load=$loc}
 	{if preg_match('/^material/', $theme_config->bootstrap_theme)}
-	    {combine_script id='bootstrap' require='popper.js' path='themes/simple-responsive/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' load=$loc}
+	    {combine_script id='bootstrap' require='popper.js' path='themes/simple-responsive/js/bootstrap-material-design.min.js' load=$loc}
 	{else}
-	    {combine_script id='bootstrap' require='popper.js' path='themes/simple-responsive/node_modules/bootstrap/dist/js/bootstrap.min.js' load=$loc}
+	    {combine_script id='bootstrap' require='popper.js' path='themes/simple-responsive/js/bootstrap.min.js' load=$loc}
 	{/if}
 	{combine_script id=$themeconf.name require='bootstrap' path='themes/simple-responsive/js/theme.js' load='footer'}
 {/strip}

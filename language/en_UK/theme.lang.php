@@ -1,4 +1,14 @@
 <?php
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Enabled'] = 'Enabled';
 $lang['Disabled'] = 'Disabled';
 $lang['Color theme'] = 'Color theme';
@@ -15,7 +25,7 @@ $lang['Infinite looping'] = 'Infinite looping';
 $lang['Endlessly scroll through album images'] = 'Endlessly scroll through album images';
 $lang['Center mode'] = 'Center mode';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Display the currently selected image in the middle. Works best with infinite looping enabled.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.';
 $lang['Autoplay interval'] = 'Autoplay interval';
 $lang['milliseconds'] = 'milliseconds';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Show a jumbotron banner on the categroy pages.';
@@ -41,7 +51,7 @@ $lang['Show image caption'] = 'Show image caption';
 $lang['from'] = 'from';
 $lang['Site logo'] = 'Site logo';
 $lang['Display a site logo image instead of plain text'] = 'Display a site logo image instead of plain text';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'The path to the image, relative to your Piwigo installation folder';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'The path to the image, relative to your Phyxo installation folder';
 $lang['directly in the navigation bar'] = 'directly in the navigation bar';
 $lang['Social integration'] = 'Social integration';
 $lang['Basic'] = 'Basic';

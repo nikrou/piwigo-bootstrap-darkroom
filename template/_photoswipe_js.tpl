@@ -1,7 +1,6 @@
-{combine_css path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe.css" order=-11}
-{combine_css path="themes/simple-responsive/node_modules/photoswipe/dist/default-skin/default-skin.css" order=-12}
-{combine_script id="photoswipe" require="jquery" path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe.min.js" load="footer"}
-{combine_script id="photoswipe.ui" require="photoswipe" path="themes/simple-responsive/node_modules/photoswipe/dist/photoswipe-ui-default.min.js" load="footer"}
+{combine_css path="themes/simple-responsive/css/photoswipe.css" order=-11}
+{combine_script id="photoswipe" require="jquery" path="themes/simple-responsive/js/photoswipe.min.js" load="footer"}
+{combine_script id="photoswipe.ui" require="photoswipe" path="themes/simple-responsive/js/photoswipe-ui-default.min.js" load="footer"}
 {footer_script require='jquery' require="photoswipe.ui"}{strip}
 var selector = '{$selector}';
 

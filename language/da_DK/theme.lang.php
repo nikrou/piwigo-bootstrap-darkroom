@@ -1,32 +1,21 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Show basic EXIF metadata'] = 'Vis basale EXIF-metadata';
 $lang['Show image caption'] = 'Vis billedoverskrift';
 $lang['Sidebar (like Boostrap Default)'] = 'Sidebar (som Bootstrap Default)';
 $lang['Site logo'] = 'Webstedslogo';
 $lang['Social integration'] = 'Social integration';
 $lang['Tabs below the image'] = 'Faner under billedet';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Stien til billedet, relativ til den mappe din Piwigo er installeret i';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Stien til billedet, relativ til den mappe din Phyxo er installeret i';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Dette vil vise albummer som mediekilder med kvadratiske miniaturebilleder, svarende til mobiltemaet smartpocket.';
 $lang['Thumbnail Link Target'] = 'Mål for miniaturebilledlink';
 $lang['Thumbnail page display'] = 'Vis miniaturebilledside';
@@ -69,7 +58,7 @@ $lang['Disabled'] = 'Deaktiveret';
 $lang['Display a site logo image instead of plain text'] = 'Vis et webstedslogo i stedet for simpel tekst';
 $lang['Display categories as Bootstrap media wells'] = 'Vis albummer som Bootstrap-mediekilder';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Vis det aktuelt valgt billede i midten. Fungerer bedst når uendelig løkke er aktiveret.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Aktiver PhotoSwipe-fuldskærmsslideshow. Deaktiver hvis du foretrækker at anvende plugins så som Fotorama eller Piwigos standardslideshow.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Aktiver PhotoSwipe-fuldskærmsslideshow. Deaktiver hvis du foretrækker at anvende plugins så som Fotorama eller Phyxos standardslideshow.';
 $lang['A color theme from'] = 'Et farvetema fra';
 $lang['Display category description in grid view'] = 'Vis albumbeskrivelse i gittervisning';
 $lang['Fullscreen'] = 'Hele skærmen';

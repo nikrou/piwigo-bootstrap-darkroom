@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Disabled'] = 'Atspējots';
 $lang['Basic'] = 'Pamata';
 $lang['Always'] = 'Vienmēr';
@@ -51,7 +40,7 @@ $lang['Color theme'] = 'Krāsu tēma';
 $lang['Center mode'] = 'Centra režīms';
 $lang['Bootstrap theme'] = 'Bootstrap tēma';
 $lang['A color theme from'] = 'Krāsu tēma no';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Iespējot PhotoSwipe pilnekrāna slaidrādi. Atspējot, ja vēlaties izmantot Fotorama spraudņus vai Piwigo noklusējuma slīdrādi.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Iespējot PhotoSwipe pilnekrāna slaidrādi. Atspējot, ja vēlaties izmantot Fotorama spraudņus vai Phyxo noklusējuma slīdrādi.';
 $lang['By'] = 'Ar';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Rādīt jumbotron banneri kategoriju lapās.';
 $lang['Photoswipe Slideshow (Mobile devices only)'] = 'Photoswipe Slaidrāde (Tikai Mobilām ierīcēm)';
@@ -62,7 +51,7 @@ $lang['Bootstrap Darkroom\'s custom dark color theme'] = 'Sāknēšanas Darkroom
 $lang['Enable the slick carousel below the main image on the picture page'] = 'Iespējojiet slīdošo karuseli zem galvenā attēla uz attēla lapas';
 $lang['PhotoSwipe Slideshow'] = 'PhotoSwipe Slaidrāde';
 $lang['Picture info display position'] = 'Attēla informācijas attēlošanas pozīcija';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Ceļš uz attēlu, līdzīgi kā uz jūsu Piwigo instalācijas mapi';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Ceļš uz attēlu, līdzīgi kā uz jūsu Phyxo instalācijas mapi';
 $lang['Picture page display'] = 'Attēla lapas attēlojums';
 $lang['For more information on metadata visit'] = '
 Lai iegūtu vairāk informāciju par metadatiem, apmeklējiet';

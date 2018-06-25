@@ -7,7 +7,7 @@
 
     <p>{'A mobile-ready theme based on Bootstrap 4'|translate}</p>
 
-    <p>{'Download'|translate}: <a href="https://ext.phyxo.net/extension_view.php?eid=NNN">https://ext.phyxo.net/extension_view.php?eid=NNN</a>
+    <p>{'Download'|translate}: <a href="https://ext.phyxo.net/extension_view.php?eid=5">https://ext.phyxo.net/extension_view.php?eid=5</a>
     </p>
 
     <p>{'Source'|translate}: <a href="https://github.com/nikrou/simple-responsive">https://github.com/nikrou/simple-responsive</a>

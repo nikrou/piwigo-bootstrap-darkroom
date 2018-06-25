@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Bootstrap Darkroom\'s custom dark color theme'] = 'Προσαρμοσμένο σκούρο χρώμα θέματος του Bootstrap Darkroom';
 $lang['Basic'] = 'Βασικό';
 $lang['Autoplay interval'] = 'Διάστημα Αυτόματης Αναπαραγωγής';
@@ -28,7 +17,7 @@ $lang['A color theme from'] = 'Ένα θέμα χρωμάτων από';
 $lang['Endlessly scroll through album images'] = 'Περιηγηθείτε ατελείωτα στις εικόνες άλμπουμ';
 $lang['Enabled'] = 'Ενεργοποιημένο';
 $lang['Enable the slick carousel below the main image on the picture page'] = 'Ενεργοποιήστε το κυλινδρικό καρουσέλ κάτω από την κύρια εικόνα στη σελίδα της εικόνας';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Ενεργοποιήστε την προβολή παρουσίασης πλήρους οθόνης PhotoSwipe. Απενεργοποιήστε εάν προτιμάτε να χρησιμοποιείτε πρόσθετα όπως το Fotorama ή το προεπιλεγμένο slideshow του Piwigo.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Ενεργοποιήστε την προβολή παρουσίασης πλήρους οθόνης PhotoSwipe. Απενεργοποιήστε εάν προτιμάτε να χρησιμοποιείτε πρόσθετα όπως το Fotorama ή το προεπιλεγμένο slideshow του Phyxo.';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Εμφάνιση της τρέχουσας επιλεγμένης εικόνας στη μέση. Λειτουργεί καλύτερα με ενεργοποιημένο το άπειρο looping.';
 $lang['Display categories as Bootstrap media wells'] = 'Εμφάνιση κατηγοριών ως πηγάδια πολυμέσων Bootstrap';
 $lang['Display category description in grid view'] = 'Εμφάνιση κατηγορίας εμφάνισης σε προβολή πλέγματος';

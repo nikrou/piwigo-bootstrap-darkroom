@@ -1,29 +1,18 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Enable the slick carousel below the main image on the picture page'] = 'Включение "карусели" на странице под главным изображением';
 $lang['Display categories as Bootstrap media wells'] = 'Отображение категорий как медиа-стена Bootstrap ';
 $lang['Autoplay interval'] = 'Интервал автозапуска';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Включение полноэранного слайшоу PhotoSwipe. Отключается, если Вы предпочитаете использовать плагин типа Fotorama или слайдшоу, входящее в Piwigo по умолчанию.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Включение полноэранного слайшоу PhotoSwipe. Отключается, если Вы предпочитаете использовать плагин типа Fotorama или слайдшоу, входящее в Phyxo по умолчанию.';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Отображение выбранного изображения в середине. Лучше всего работает  при разрещенном бесконечном зацикливании.';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Показ категории с квадратными миниатюрами, подобно мобильной теме smartpocket.';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Показ баннера jumbotron на странице категорий.';
@@ -39,7 +28,7 @@ $lang['For more information on metadata visit'] = 'Для получения д�
 $lang['Endlessly scroll through album images'] = 'Бесконечная прокрутка изображений альбома';
 $lang['Link thumbnail to'] = 'Ссылка миниатюры ';
 $lang['Sidebar (like Boostrap Default)'] = 'Боковая панель (как по умолчанию Boostrap)';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Путь к изображению, относительно папки установки Вашей Piwigo ';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Путь к изображению, относительно папки установки Вашей Phyxo ';
 $lang['Bug reports and feature requests'] = 'Отчет об ошибках и запросы';
 $lang['Color theme'] = 'Цветная тема';
 $lang['If you find any issues, please report them to the'] = 'Если Вы нашли проблемы любого рода, сообщите о них, пожалуйста ';

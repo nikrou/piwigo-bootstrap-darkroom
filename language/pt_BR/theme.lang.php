@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Picture page display'] = 'Visualização da página de imagens';
 $lang['Picture info display position'] = 'Posição de visualização da informação da imagem';
 $lang['Picture details page'] = 'Página de detalhes da imagem';
@@ -36,7 +25,7 @@ $lang['For more information on metadata visit'] = 'Para obter mais informações
 $lang['Endlessly scroll through album images'] = 'Deslocar-se sem parar pelas imagens do álbum';
 $lang['Enabled'] = 'Ativado';
 $lang['Enable the slick carousel below the main image on the picture page'] = 'Ativar o carrossel liso abaixo da imagem principal na página da imagem';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Ativar PhotoSwipe slides de tela inteira. Desative se você preferir usar Plugins como o Fotorama ou a apresentação de slides padrão do Piwigo.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Ativar PhotoSwipe slides de tela inteira. Desative se você preferir usar Plugins como o Fotorama ou a apresentação de slides padrão do Phyxo.';
 $lang['will load the image as soon as you slide to it'] = 'Irá carregar a imagem assim que você deslizar para ele';
 $lang['loads all images one after another when the page loads (use carefully!)'] = 'Carrega todas as imagens uma após a outra quando a página é carregada (use com cuidado!)';
 $lang['milliseconds'] = 'Milissegundos';
@@ -46,7 +35,7 @@ $lang['directly in the navigation bar'] = 'diretamente na barra de navegação';
 $lang['Thumbnail page display'] = 'Exibição da página em miniatura';
 $lang['Thumbnail Link Target'] = 'Alvo da Hiperligação da Miniatura';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Isso exibirá categorias como poços de mídia com miniaturas quadradas, semelhante ao tema móvel smartpocket.';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'O caminho para a imagem, em relação à sua pasta de instalação Piwigo';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'O caminho para a imagem, em relação à sua pasta de instalação Phyxo';
 $lang['Tabs below the image'] = 'Abas abaixo da imagem';
 $lang['Social integration'] = 'Integração social';
 $lang['Site logo'] = 'Logotipo do site';

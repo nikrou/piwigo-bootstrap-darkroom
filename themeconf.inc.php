@@ -13,7 +13,7 @@
 Theme Name: Simple Responsive
 Version: 0.1.0
 Description: Responsive theme
-Theme URI: https://ext.phyxo.net/extension_view.php?eid=NNN
+Theme URI: https://ext.phyxo.net/extension_view.php?eid=5
 Author: Nicolas Roudaire
 Author URI: https://www.phyxo.net
 

@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Enabled'] = 'Aktiverad';
 $lang['Endlessly scroll through album images'] = 'Oändlig bläddring genom albumets bilder';
 $lang['For more information on metadata visit'] = 'För mer information om metadata besök';
@@ -35,7 +24,7 @@ $lang['Color theme'] = 'Färgtema';
 $lang['Disabled'] = 'Avstängd';
 $lang['Display a site logo image instead of plain text'] = 'Visa logo istället för text ';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Visa den valda bilden i mitten. Fungerar bäst med oändlig repetition aktiverad.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Aktivera PhotoSwipe fullskärmsbildspel. Stäng av om du föredrar insticksmoduler som Fotorama eller Piwigos standard bildspel';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Aktivera PhotoSwipe fullskärmsbildspel. Stäng av om du föredrar insticksmoduler som Fotorama eller Phyxos standard bildspel';
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Visa en jumbotronbanderoll på kategorisidor.';
 $lang['Show basic EXIF metadata'] = 'Visa grundläggande EXIF metadata';
 $lang['Show image caption'] = 'Visa bildrubrik';
@@ -43,7 +32,7 @@ $lang['Sidebar (like Boostrap Default)'] = 'Sidofält (som Bootstrap standard)';
 $lang['Site logo'] = 'Webbplatslogga';
 $lang['Social integration'] = 'Social integration';
 $lang['Tabs below the image'] = 'Flikar under bilden';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Sökvägen till bilden, i förhållande till din Piwigo installations mapp';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Sökvägen till bilden, i förhållande till din Phyxo installations mapp';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Detta kommer att visa kategorier som mediakällor med kvadratiska miniatyrbilder, liknande smartpocket mobile temat.';
 $lang['Thumbnail Link Target'] = 'Mål för miniatyrlänkar';
 $lang['Thumbnail page display'] = 'Miniatyrsidovisning';

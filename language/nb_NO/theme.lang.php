@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Show a jumbotron banner on the categroy pages.'] = 'Vis en storskjerms banner på kategori siden.';
 $lang['Show basic EXIF metadata'] = 'Vis grunnleggende EXIF metadata';
 $lang['Show image caption'] = 'Vis bildes bildetekst';
@@ -27,7 +16,7 @@ $lang['Sidebar (like Boostrap Default)'] = 'Sidestolpe (som Bootstrap standard)'
 $lang['Site logo'] = 'Nettside logo ';
 $lang['Social integration'] = 'Sosial integrering';
 $lang['Tabs below the image'] = 'Knapper under bilde';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Stien til bilde, i forhold til din Piwigo installasjonsmappe';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Stien til bilde, i forhold til din Phyxo installasjonsmappe';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Dette vil vise kategorier som mediebrønner med firkantede miniatybilder som ligner på smartpocket mobil tema.';
 $lang['Thumbnail Link Target'] = 'Miniatyrbildes Lenke Mål';
 $lang['Thumbnail page display'] = 'Miniatyrbilders side visning';
@@ -48,7 +37,7 @@ $lang['Photoswipe Slideshow (Mobile devices only)'] = 'PotoSwipe lysbildefremvis
 $lang['Picture details page'] = 'Bildedetaljert side';
 $lang['Picture info display position'] = 'Bildes informasjonsvisnings posisjon';
 $lang['Picture page display'] = 'Bildes sidevisning';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Aktiver PhotoSwipe lysbildefremvisning i fullskjerm. Deaktiver hvis du foretrekker å bruke tilleggsprogrammer som Fotorama eller Piwigo\'s standard lysbildefremvisning.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Aktiver PhotoSwipe lysbildefremvisning i fullskjerm. Deaktiver hvis du foretrekker å bruke tilleggsprogrammer som Fotorama eller Phyxo\'s standard lysbildefremvisning.';
 $lang['HTML 5 canvas'] = 'HTML 5 canvas';
 $lang['For more information on metadata visit'] = 'For mer informasjon besøk metadata';
 $lang['Endlessly scroll through album images'] = 'Uendelig gjennomblaing av albumbilder';

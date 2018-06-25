@@ -1,25 +1,14 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Piwigo - a PHP based photo gallery                                    |
-// +-----------------------------------------------------------------------+
-// | Copyright(C) 2008-2016 Piwigo Team                  http://piwigo.org |
-// | Copyright(C) 2003-2008 PhpWebGallery Team    http://phpwebgallery.net |
-// | Copyright(C) 2002-2003 Pierrick LE GALL   http://le-gall.net/pierrick |
-// +-----------------------------------------------------------------------+
-// | This program is free software; you can redistribute it and/or modify  |
-// | it under the terms of the GNU General Public License as published by  |
-// | the Free Software Foundation                                          |
-// |                                                                       |
-// | This program is distributed in the hope that it will be useful, but   |
-// | WITHOUT ANY WARRANTY; without even the implied warranty of            |
-// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
-// | General Public License for more details.                              |
-// |                                                                       |
-// | You should have received a copy of the GNU General Public License     |
-// | along with this program; if not, write to the Free Software           |
-// | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
-// | USA.                                                                  |
-// +-----------------------------------------------------------------------+
+/*
+ * This file is part of Simple Responsive package
+ *
+ * Copyright(c) Nicolas Roudaire  https://www.phyxo.net/
+ * Licensed under the APACHE 2.0 license.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $lang['Tabs below the image'] = 'Tabs onder de foto';
 $lang['Thumbnail page display'] = 'Miniatuur paginaweergave';
 $lang['directly in the navigation bar'] = 'direct in de navigatiebalk';
@@ -49,14 +38,14 @@ $lang['Disabled'] = 'Uitgeschakeld';
 $lang['Display a site logo image instead of plain text'] = 'Geef een websitelogo weer in plaats van tekst';
 $lang['Display category description in grid view'] = 'Geef categorie-beschrijving weer in rasterweergave';
 $lang['Display the currently selected image in the middle. Works best with infinite looping enabled.'] = 'Toon de geselecteerde foto in het midden. Dit werkt het beste met oneindige loop ingeschakeld.';
-$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Piwigo\'s default slideshow.'] = 'Schakel PhotoSwipe volle schermgrootte in. Uitschakelen als u liever plugins zoals Fotorama of Piwigo\'s standaard diashow wilt gebruiken.';
+$lang['Enable PhotoSwipe fullscreen slideshow. Disable if you prefer to use Plugins like Fotorama or Phyxo\'s default slideshow.'] = 'Schakel PhotoSwipe volle schermgrootte in. Uitschakelen als u liever plugins zoals Fotorama of Phyxo\'s standaard diashow wilt gebruiken.';
 $lang['Enable the slick carousel below the main image on the picture page'] = 'Schakel de slick carrousel onder de hoofd-afbeelding op de fotopagina in';
 $lang['Never'] = 'Nooit';
 $lang['from'] = 'van';
 $lang['milliseconds'] = 'milliseconden';
 $lang['Always'] = 'Altijd';
 $lang['By'] = 'Door';
-$lang['The path to the image, relative to your Piwigo installation folder'] = 'Het pad naar de foto, relatief ten opzichte van de Piwigo installatiemap';
+$lang['The path to the image, relative to your Phyxo installation folder'] = 'Het pad naar de foto, relatief ten opzichte van de Phyxo installatiemap';
 $lang['This will display categories as media wells with squared thumbnails, similar to the smartpocket mobile theme.'] = 'Hierdoor worden categorieën weergegeven als media-bronnen met vierkante miniaturen, vergelijkbaar met het smartpocket mobiele thema.';
 $lang['Thumbnail Link Target'] = 'Miniatuur link-doel';
 $lang['Basic'] = 'Basis';
