@@ -88,15 +88,14 @@
 	    {combine_script id='bootstrap' require='popper.js' path='themes/simple-responsive/js/bootstrap.min.js' load=$loc}
 	{/if}
 	{combine_script id=$themeconf.name require='bootstrap' path='themes/simple-responsive/js/theme.js' load='footer'}
-{/strip}
-{get_combined_scripts load='header'}
-{if not empty($head_elements)}
-    {foreach from=$head_elements item=elt}{$elt}
-    {/foreach}
-{/if}
+        {/strip}
+	{get_combined_scripts load='header'}
+	{if not empty($head_elements)}
+	    {foreach from=$head_elements item=elt}{$elt}
+	    {/foreach}
+	{/if}
     </head>
-
-    <body id="{$BODY_ID}">
+    <body>
 	<div id="wrapper">
 	    {if isset($MENUBAR)}
 		<nav class="navbar navbar-expand-lg navbar-main {$theme_config->navbar_main_bg} {if $theme_config->page_header == 'fancy'}navbar-dark navbar-transparent fixed-top{else}{$theme_config->navbar_main_style}{/if}">
@@ -224,19 +223,19 @@
 		    padding-top: 5px;
 		    padding-bottom: 5px;
 		    }
-{/html_style}
-{footer_script require='jquery'}
-$(document).ready(function() {
-$('.navbar-contextual').removeClass('navbar-light').addClass('navbar-dark navbar-forced-sm');
-});
-{/footer_script}
+                    {/html_style}
+		    {footer_script require='jquery'}
+		    $(document).ready(function() {
+		    $('.navbar-contextual').removeClass('navbar-light').addClass('navbar-dark navbar-forced-sm');
+		    });
+                    {/footer_script}
 		{else}
-{footer_script require='jquery'}
-$(document).ready(function() {
-$('.page-header').addClass('mb-5');
-$('.navbar-contextual').addClass('navbar-transparent navbar-sm');
-});
-{/footer_script}
+		    {footer_script require='jquery'}
+		    $(document).ready(function() {
+		    $('.page-header').addClass('mb-5');
+		    $('.navbar-contextual').addClass('navbar-transparent navbar-sm');
+		    });
+                    {/footer_script}
 		{/if}
 	    {/if}
 
@@ -248,6 +247,4 @@ $('.navbar-contextual').addClass('navbar-transparent navbar-sm');
 	    {if not empty($header_notes)}
 		{foreach from=$header_notes item=note}
 		{/foreach}
-{/if}
-
-<!-- End of header.tpl -->
+	    {/if}

@@ -43,10 +43,6 @@ class ThemeController
         add_event_handler('format_exif_data', array($this, 'exifReplacements'));
         add_event_handler('loc_end_picture', array($this, 'registerPictureTemplates'));
         add_event_handler('loc_begin_index_thumbnails', array($this, 'returnPageStart'));
-
-        add_event_handler('loc_end_picture', array($this, 'getAllThumbnailsInCategory'));
-        // also needed on index.tpl for compatibility with GThumb+/GDThumb
-        add_event_handler('loc_end_index', array($this, 'getAllThumbnailsInCategory'));
     }
 
     public function assignConfig()
@@ -181,102 +177,4 @@ class ThemeController
             }
         }
     }
-
-    public function getAllThumbnailsInCategory()
-    {
-        global $template, $conf, $user, $page, $conn;
-
-        include_once(PHPWG_ROOT_PATH . '/include/functions_metadata.inc.php');
-
-        if (!$page['items'] || ($page['section'] == 'categories' && !isset($page['category']))) {
-            return;
-        }
-
-        // select all pictures for this category
-        $query = 'SELECT * FROM ' . IMAGES_TABLE;
-        $query .= ' WHERE id ' . $conn->in($page['items']);
-            
-        // ORDER BY FIELD(id, ' . implode(',', $page['items']) . ')
-        // @TODO: find a way to add that if really needed
-        $result = $conn->db_query($query);
-
-        $pictures = array();
-        while ($row = $conn->db_fetch_assoc($result)) {
-            $pictures[] = $row;
-        }
-
-        $tpl_thumbnails_var = array();
-
-        $theme_config = $template->get_template_vars('theme_config');
-
-        if ($theme_config->photoswipe_metadata) {
-            if (array_key_exists('bootstrap_darkroom_ps_exif_mapping', $conf)) {
-                $exif_mapping = $conf['bootstrap_darkroom_ps_exif_mapping'];
-            } else {
-                $exif_mapping = array(
-                    'date_creation' => 'DateTimeOriginal',
-                    'make' => 'Make',
-                    'model' => 'Model',
-                    'lens' => 'UndefinedTag:0xA434',
-                    'shutter_speed' => 'ExposureTime',
-                    'iso' => 'ISOSpeedRatings',
-                    'apperture' => 'FNumber',
-                    'focal_length' => 'FocalLength',
-                );
-            }
-        }
-
-        foreach ($pictures as $row) {
-            $url = duplicate_picture_url(
-                array(
-                    'image_id' => $row['id'],
-                    'image_file' => $row['file'],
-                ),
-                array('start')
-            );
-
-            $name = render_element_name($row);
-            $desc = render_element_description($row, 'main_page_element_description');
-
-            $tpl_var = array_merge($row, array(
-                'NAME' => $name,
-                'TN_ALT' => htmlspecialchars(strip_tags($name)),
-                'URL' => $url,
-                'DESCRIPTION' => htmlspecialchars(strip_tags($desc)),
-                'src_image' => new \SrcImage($row),
-                'SIZE' => $row['width'] . 'x' . $row['height'],
-                'PATH' => $row['path'],
-                'DATE_CREATED' => $row['date_creation'],
-            ));
-
-            if ($theme_config->photoswipe_metadata) {
-                $tpl_var = array_merge($tpl_var, array(
-                    'EXIF' => get_exif_data($row['path'], $exif_mapping),
-                ));
-
-                //optional replacements
-                if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $conf)) {
-                    foreach ($conf['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
-                        if (array_key_exists($tag, $tpl_var['EXIF'])) {
-                            $tpl_var['EXIF'][$tag] = str_replace($replacement[0], $replacement[1], $tpl_var['EXIF'][$tag]);
-                        }
-                    }
-                }
-            }
-
-            $tpl_thumbnails_var[] = $tpl_var;
-        }
-
-        $template->assign('thumbnails', $tpl_thumbnails_var);
-
-        $template->assign(array(
-            'derivative_params_square' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_SQUARE)),
-            'derivative_params_medium' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_MEDIUM)),
-            'derivative_params_large' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_LARGE)),
-            'derivative_params_xxlarge' => trigger_change('get_index_derivative_params', \ImageStdParams::get_by_type(IMG_XXLARGE)),
-        ));
-
-        unset($tpl_thumbnails_var, $pictures);
-    }
 }
-

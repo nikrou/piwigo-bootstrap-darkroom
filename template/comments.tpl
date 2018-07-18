@@ -3,7 +3,10 @@
 {block name="content"}
     <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-5">
 	<div class="container{if $theme_config->fluid_width}-fluid{/if}">
-            <div class="navbar-brand mr-auto"><a href="{$U_HOME}">{'Home'|translate}</a>{$LEVEL_SEPARATOR}<a href>{'User comments'|translate}</a></div>
+            <div class="navbar-brand mr-auto">
+		<a href="{$U_HOME}">{'Home'|translate}</a>{$LEVEL_SEPARATOR}
+		{'User comments'|translate}
+	    </div>
 	</div>
     </nav>
 
@@ -99,7 +102,7 @@
 	{if !empty($navbar) }
 	    <div class="container{if $theme_config->fluid_width}-fluid{/if}">
 		{include file='navigation_bar.tpl' fragment='comments'}
-</div>
-{/if}
-{/if}
+	    </div>
+	{/if}
+    {/if}
 {/block}

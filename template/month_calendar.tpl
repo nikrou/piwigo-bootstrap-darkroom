@@ -80,30 +80,34 @@
 		#calMonth td{
 		width:{$chronology_calendar.month_view.CELL_WIDTH}px;height:{$chronology_calendar.month_view.CELL_HEIGHT + 29}px
 		}
-{/html_style}
-{foreach from=$chronology_calendar.month_view.weeks item=week}
-    <tr>
-        {foreach from=$week item=day}
-            {if !empty($day)}
-		{if isset($day.IMAGE)}
-		    <td class="calDayCellFull">
-			<div class="calDate">{$day.DAY}</div>
-			<div class="calImg">
+               {/html_style}
+	       {foreach from=$chronology_calendar.month_view.weeks item=week}
+		   <tr>
+		       {foreach from=$week item=day}
+			   {if !empty($day)}
+			       {if isset($day.IMAGE)}
+				   <td class="calDayCellFull">
+				       <div class="calDate">{$day.DAY}</div>
+				       <div class="calImg">
 			    <a href="{$day.U_IMG_LINK}">
 				<img class="img-fluid" src="{$day.IMAGE}" alt="{$day.IMAGE_ALT}" title="{$day.NB_ELEMENTS|translate_dec:'%d photo':'%d photos'}">
 			    </a>
 			</div>
-		{else}
+			       {else}
 			<td class="calDayCellEmpty">{$day.DAY}
-		{/if}
-            {else}{*blank cell first or last row only*}
-		<td>
-            {/if}
-		</td>
-        {/foreach}{*day in week*}
-    </tr>
-{/foreach}{*week in month*}
-    </table>
-</div>
-{/if}
+			       {/if}
+			   {else}{*blank cell first or last row only*}
+			       <td>
+			   {/if}
+			       </td>
+		       {/foreach}{*day in week*}
+		   </tr>
+	       {/foreach}{*week in month*}
+	    </table>
+	</div>
+    {/if}
+
+    {if $thumbnails}
+	{include file="_thumbnails.tpl"}
+    {/if}
 {/block}

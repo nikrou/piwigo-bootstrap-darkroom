@@ -3,7 +3,10 @@
 {block name="content"}
     <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-5">
 	<div class="container{if $theme_config->fluid_width}-fluid{/if}">
-            <div class="navbar-brand mr-auto"><a href="{$U_HOME}">{'Home'|translate}</a>{$LEVEL_SEPARATOR}<a href>{$title}</a></div>
+            <div class="navbar-brand mr-auto">
+		<a href="{$U_HOME}">{'Home'|translate}</a>{$LEVEL_SEPARATOR}
+		{$title}
+	    </div>
             <ul class="nav navbar-nav">
 		{if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}
             </ul>

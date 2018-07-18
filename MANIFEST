@@ -165,6 +165,7 @@ simple-responsive/language/el_GR/theme.lang.php
 simple-responsive/language/nl_NL/theme.lang.php
 simple-responsive/themeconf.inc.php
 simple-responsive/BUGS.md
+simple-responsive/TODO.md
 simple-responsive/assets/photography-icons/css/PhotographyIcons.css
 simple-responsive/assets/photography-icons/fonts/PhotographyIcons.ttf
 simple-responsive/assets/photography-icons/fonts/PhotographyIcons.svg
@@ -178,6 +179,7 @@ simple-responsive/template/menubar_links.tpl
 simple-responsive/template/register.tpl
 simple-responsive/template/profile.tpl
 simple-responsive/template/picture_info_comments.tpl
+simple-responsive/template/_albums.tpl
 simple-responsive/template/thumbnails.tpl
 simple-responsive/template/menubar_identification.tpl
 simple-responsive/template/menubar_menu.tpl
@@ -199,6 +201,7 @@ simple-responsive/template/stuffs_lastcoms.tpl
 simple-responsive/template/grid_classes.tpl
 simple-responsive/template/infos_errors.tpl
 simple-responsive/template/password.tpl
+simple-responsive/template/_thumbnails.tpl
 simple-responsive/template/comments.tpl
 simple-responsive/template/header.tpl
 simple-responsive/template/add_photos.tpl
