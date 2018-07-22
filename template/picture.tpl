@@ -2,9 +2,7 @@
 
 {block name="content"}
     <!-- Start of picture.tpl -->
-    {if get_device() != 'desktop'}
-	{combine_script id='jquery.mobile-events' path='themes/simple-responsive/js/jquery.mobile-events.min.js' require='jquery' load='footer'}
-    {/if}
+    {combine_script id='jquery.mobile-events' path='themes/simple-responsive/js/jquery.mobile-events.min.js' require='jquery' load='footer'}
 
     {if !empty($PLUGIN_PICTURE_BEFORE)}{$PLUGIN_PICTURE_BEFORE}{/if}
 
@@ -16,75 +14,73 @@
 	<div class="row justify-content-center">
 	    {include file='picture_nav_buttons.tpl'}
 	</div>
-	{if get_device() != 'desktop' }
-	    {footer_script require="jquery"}{strip}
-	    $('#theImage img').bind('swipeleft swiperight', function (event) {
-	    if (event.type == 'swipeleft') {
-	    $('#navigationButtons a#navNextPicture i').click();
-	    } else if (event.type == 'swiperight') {
-	    $('#navigationButtons a#navPrevPicture i').click();
-	    } else {
-	    return;
-	    }
-	    });
-{/strip}{/footer_script}
-	{/if}
+	{footer_script require="jquery"}{strip}
+	$('#theImage img').bind('swipeleft swiperight', function (event) {
+	if (event.type == 'swipeleft') {
+	$('#navigationButtons a#navNextPicture i').click();
+	} else if (event.type == 'swiperight') {
+	$('#navigationButtons a#navPrevPicture i').click();
+	} else {
+	return;
+	}
+	});
+           {/strip}{/footer_script}
 
-	<div id="theImage" class="row d-block justify-content-center mb-3">
-	    {$ELEMENT_CONTENT}
-	</div>
+	   <div id="theImage" class="row d-block justify-content-center mb-3">
+	       {$ELEMENT_CONTENT}
+	   </div>
 
-	{if $theme_config->picture_info == 'sidebar'}
-	    {include file='picture_info_sidebar.tpl'}
-	{/if}
+	   {if $theme_config->picture_info == 'sidebar'}
+	       {include file='picture_info_sidebar.tpl'}
+	   {/if}
 
-	<div id="theImageComment" class="row justify-content-center mb-3">
-	    {if isset($COMMENT_IMG)}
-		<div class="text-center col-lg-10 -col-md-12 mx-auto">
-		    <section id="important-info">
-			<h5 class="imageComment">{$COMMENT_IMG}</h5>
-		    </section>
-		</div>
-	    {/if}
-	</div>
+	   <div id="theImageComment" class="row justify-content-center mb-3">
+	       {if isset($COMMENT_IMG)}
+		   <div class="text-center col-lg-10 -col-md-12 mx-auto">
+		       <section id="important-info">
+			   <h5 class="imageComment">{$COMMENT_IMG}</h5>
+		       </section>
+		   </div>
+	       {/if}
+	   </div>
 
-	{include file="http_scheme.tpl"}
-	{if $theme_config->social_enabled}
-	    <div id="theImageShareButtons" class="row justify-content-center{if !$theme_config->slick_enabled} pb-4{/if}">
-		<section id="share">
-		    {if $theme_config->social_twitter}
-			<a href="http://twitter.com/share?text={$current.TITLE}&amp;url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
-			   onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-twitter"{/if}>
-			    <i class="fab fa-twitter"></i>{if $theme_config->social_buttons} Twitter{/if}
-			</a>
-		    {/if}
-		    {if $theme_config->social_facebook}
-			<a href="https://www.facebook.com/sharer/sharer.php?u={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
-			   onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-facebook"{/if}>
-			    <i class="fab fa-facebook"></i>{if $theme_config->social_buttons} Facebook{/if}
-			</a>
-		    {/if}
-		    {if $theme_config->social_google_plus}
-			<a href="https://plus.google.com/share?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
-			   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-google"{/if}>
-			    <i class="fab fa-google"></i>{if $theme_config->social_buttons} Google+{/if}
-			</a>
-		    {/if}
-		    {if $theme_config->social_pinterest}
-			<a href="https://www.pinterest.com/pin/create/button/?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}&media={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}/../{$current.selected_derivative->get_url()}"
-			   onclick="window.open(this.href, 'pinterest-share', 'width=490,height=530');return false;" title="Pin on Pinterest"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-pinterest"{/if}>
-			    <i class="fab fa-pinterest"></i>{if $theme_config->social_buttons} Pinterest{/if}
-			</a>
-		    {/if}
-		    {if $theme_config->social_vk}
-			<a href="https://vkontakte.ru/share.php?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}&image={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}/../{$current.selected_derivative->get_url()}"
-			   onclick="window.open(this.href, 'vk-share', 'width=490,height=530');return false;" title="Share on VK"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-vk"{/if}>
-			    <i class="fab fa-vk"></i>{if $theme_config->social_buttons} VK{/if}
-			</a>
-		    {/if}
-		</section>
-	    </div>
-	{/if}
+	   {include file="http_scheme.tpl"}
+	   {if $theme_config->social_enabled}
+	       <div id="theImageShareButtons" class="row justify-content-center{if !$theme_config->slick_enabled} pb-4{/if}">
+		   <section id="share">
+		       {if $theme_config->social_twitter}
+			   <a href="http://twitter.com/share?text={$current.TITLE}&amp;url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+			      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-twitter"{/if}>
+			       <i class="fab fa-twitter"></i>{if $theme_config->social_buttons} Twitter{/if}
+			   </a>
+		       {/if}
+		       {if $theme_config->social_facebook}
+			   <a href="https://www.facebook.com/sharer/sharer.php?u={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+			      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-facebook"{/if}>
+			       <i class="fab fa-facebook"></i>{if $theme_config->social_buttons} Facebook{/if}
+			   </a>
+		       {/if}
+		       {if $theme_config->social_google_plus}
+			   <a href="https://plus.google.com/share?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+			      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-google"{/if}>
+			       <i class="fab fa-google"></i>{if $theme_config->social_buttons} Google+{/if}
+			   </a>
+		       {/if}
+		       {if $theme_config->social_pinterest}
+			   <a href="https://www.pinterest.com/pin/create/button/?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}&media={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}/../{$current.selected_derivative->get_url()}"
+			      onclick="window.open(this.href, 'pinterest-share', 'width=490,height=530');return false;" title="Pin on Pinterest"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-pinterest"{/if}>
+			       <i class="fab fa-pinterest"></i>{if $theme_config->social_buttons} Pinterest{/if}
+			   </a>
+		       {/if}
+		       {if $theme_config->social_vk}
+			   <a href="https://vkontakte.ru/share.php?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}&image={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}/../{$current.selected_derivative->get_url()}"
+			      onclick="window.open(this.href, 'vk-share', 'width=490,height=530');return false;" title="Share on VK"{if $theme_config->social_buttons} class="btn btn-sm btn-social btn-raised btn-vk"{/if}>
+			       <i class="fab fa-vk"></i>{if $theme_config->social_buttons} VK{/if}
+			   </a>
+		       {/if}
+		   </section>
+	       </div>
+	   {/if}
     </div>
 
     <div id="carousel-container" class="container">
@@ -156,6 +152,19 @@
 		</div>
 
 		{if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}
-
 	    </div>
+
+	    {if $TAGS_PERMISSION_DELETE || $TAGS_PERMISSION_ADD}
+		{combine_css path="themes/simple-responsive/css/selectize-bootstrap.css"}
+		{combine_script id='jquery.selectize' load='footer' require='jquery' path="themes/simple-responsive/js/selectize.min.js"}
+		{combine_script id="picture.tags" load="async" require="jquery" path="themes/simple-responsive/js/picture_tags.js"}
+
+		{footer_script require="picture.tags"}
+		var user_tags = user_tags || {};
+		user_tags.allow_delete = {$TAGS_PERMISSION_DELETE};
+		user_tags.allow_creation = {$TAGS_PERMISSION_ALLOW_CREATION};
+		user_tags.ws_getList = "{$USER_TAGS_WS_GETLIST}";
+		user_tags.tags_updated = "{"Tags updated"|translate}";
+	        {/footer_script}
+	    {/if}
 {/block}

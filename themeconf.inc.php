@@ -11,7 +11,7 @@
 
  /*
 Theme Name: Simple Responsive
-Version: 0.1.0
+Version: 0.3.0
 Description: Responsive theme
 Theme URI: https://ext.phyxo.net/extension_view.php?eid=5
 Author: Nicolas Roudaire
@@ -23,7 +23,7 @@ The theme is based on the original one for piwigo.
 require_once(__DIR__ . '/include/themecontroller.php');
 require_once(__DIR__ . '/include/config.php');
 
-$themeconf = array(
+$themeconf = [
     'name' => 'simple-responsive',
     'parent' => 'legacy',
     'icon_dir' => 'themes/legacy/images',
@@ -31,13 +31,13 @@ $themeconf = array(
     'load_parent_local_head' => true,
     'local_head' => 'local_head.tpl',
     'url' => 'https://www.phyxo.net/'
-);
+];
 
 // always show metadata initially
 $_SESSION['show_metadata'] = true;
 
 // register video files
-$video_ext = array('mp4', 'm4v');
+$video_ext = ['mp4', 'm4v'];
 $conf['file_ext'] = array_merge($conf['file_ext'], $video_ext, array_map('strtoupper', $video_ext));
 
 $controller = new \BootstrapDarkroom\ThemeController();

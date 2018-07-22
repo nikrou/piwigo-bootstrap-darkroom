@@ -30,7 +30,7 @@
 
 // Info tabs
 #theImageInfos {
-  .tab-pane { 
+  .tab-pane {
     margin: 10px 10px;
   }
 
@@ -60,7 +60,7 @@
   padding-bottom: 1.5em;
 
   &.slick-initialized {
-    opacity: 1; 
+    opacity: 1;
     visibility: visible;
   }
 
@@ -152,7 +152,7 @@
   .embed-responsive-16by9 video[poster] {
     object-fit: cover;
   }
-  // additional aspect ratios                                                                                                                                                              
+  // additional aspect ratios
   .embed-responsive-9by16 {
     padding-bottom: 177.78%;
   }
@@ -165,4 +165,14 @@
   @include media-breakpoint-down(sm) {
     width: 33%;
   }
+}
+
+// tags
+.edit-tags {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.js-hidden {
+    display: none;
 }

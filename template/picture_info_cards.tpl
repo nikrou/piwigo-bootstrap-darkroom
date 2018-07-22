@@ -181,13 +181,11 @@
             </div>
         </div>
     </div>
-    {if $display_info.tags and isset($related_tags)}
+    {if $display_info.tags}
 	<div id="card-tags" class="card mb-2">
             <div class="card-body">
-		<h5 class="card-title">{'Tags'|translate}</h5>
-		<div id="Tags" class="imageInfo">
-		    {foreach $related_tags as $tag}<a class="btn btn-primary btn-raised mr-1" href="{$tag.URL}">{$tag.name}</a>{/foreach}
-		</div>
+		<h5>{if $TAGS_PERMISSION_ADD}<i class="fas fa-edit edit-tags"></i>{/if}{'Tags'|translate}</h5>
+		{include file="_picture_tags.tpl"}
             </div>
 	</div>
     {/if}
