@@ -1,6 +1,3 @@
-{footer_script}
-var error_icon = "{$ROOT_URL}{$themeconf.icon_dir}/errors_small.png"{if isset($maxRequests)}, max_requests = {$maxRequests}{/if};
-{/footer_script}
 {if $derivative_params->type == "thumb"}
     {assign var=width value=520}
     {assign var=height value=360}
@@ -12,15 +9,12 @@ var error_icon = "{$ROOT_URL}{$themeconf.icon_dir}/errors_small.png"{if isset($m
     {assign var=rwidth value=$width}
     {assign var=rheight value=$height}
 {/if}
+
 {define_derivative name='derivative_params' width=$width height=$height crop=true}
 {assign var=idx value=0+$START_ID}
 <div class="row">
     {foreach $thumbnails as $thumbnail}
 	{assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
-	{if !$derivative->is_cached()}
-	    {combine_script id='jquery.ajaxmanager' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
-	    {combine_script id='thumbnails.loader' path='themes/legacy/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
-	{/if}
 	{include file="grid_classes.tpl" width=$rwidth height=$rheight}
 	<div class="col-outer {if $smarty.cookies.view == 'list'}col-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
 	    <div class="card card-thumbnail">
@@ -44,12 +38,12 @@ var error_icon = "{$ROOT_URL}{$themeconf.icon_dir}/errors_small.png"{if isset($m
 				<div class="card-text">
 				    {if isset($thumbnail.NB_COMMENTS)}
 					<p class="text-muted {if 0==$thumbnail.NB_COMMENTS}zero {/if}nb-comments">
-					    {$pwg->l10n_dec('%d comment', '%d comments',$thumbnail.NB_COMMENTS)}
+					    {$thumbnail.NB_COMMENTS|translate_dec:'%d comment':'%d comments'}
 					</p>
 				    {/if}
 				    {if isset($thumbnail.NB_HITS)}
 					<p class="text-muted {if 0==$thumbnail.NB_HITS}zero {/if}nb-hits">
-					    {$pwg->l10n_dec('%d hit', '%d hits',$thumbnail.NB_HITS)}
+					    {$thumbnail.NB_HITS|translate_dec:'%d hit':'%d hits'}
 					</p>
 				    {/if}
 				</div>

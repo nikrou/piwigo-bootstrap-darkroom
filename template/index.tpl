@@ -1,12 +1,78 @@
 {extends file="__layout.tpl"}
 
-{block name="content"}
-    <!-- Start of index.tpl -->
-    {combine_script id='cookie' require='jquery' path='themes/simple-responsive/js/jquery.cookie.js' load='footer'}
-    {combine_script id='equalheights' require='jquery' path='themes/simple-responsive/js/jquery.equalheights.js' load='footer'}
+{block name="footer_assets" append}
+    <script src="{$ROOT_URL}themes/simple-responsive/js/jquery.cookie.js"></script>
+    <script src="{$ROOT_URL}themes/simple-responsive/js/jquery.equalheights.js"></script>
     {if get_device() != 'desktop'}
-	{combine_script id='jquery.mobile-events' path='themes/simple-responsive/js/jquery.mobile-events.min.js' require='jquery' load='footer'}
+	<script src="{$ROOT_URL}themes/simple-responsive/js/jquery.mobile-events.min.js"></script>
     {/if}
+    <script src="{$ROOT_URL}themes/legacy/js/scripts.js"></script>
+    <script>
+     $(function() {
+	 $('#content .col-outer .card-body:has(> .card-title)').equalHeights();
+	 $('#content img').load(function() {
+	     $('#content .col-inner').equalHeights()
+	 });
+
+	 $('#startSlideshow').on('click touchstart', function() {
+	     startPhotoSwipe(0);
+	     $('.pswp__button--autoplay')[0].click();
+	 });
+
+	 function setupPhotoSwipe() {
+	     $('#thumbnails').find("a:has(img):not(.addCollection)").each(function(_index) {
+		 var $pswpIndex;
+		 if ($(this).find('img').length > 0) {
+		     var _href = $(this).href;
+		     $(this).attr('href', 'javascript:;').attr('data-href', _href);
+		     if (!$(this).attr('data-index')) {
+			 $(this).attr('data-index', _index);
+			 $pswpIndex = _index;
+		     } else {
+			 $pswpIndex = $(this).data('index');
+		     }
+		     $(this).off('click tap').on('click tap', function(event) {
+			 event.preventDefault();
+			 startPhotoSwipe($pswpIndex);
+		     });
+		 }
+	     });
+	 }
+     });
+
+     {if $theme_config->thumbnail_linkto == 'photoswipe' || ($theme_config->thumbnail_linkto == 'photoswipe_mobile_only' && get_device() != 'desktop')}
+     $(function() {
+	 setupPhotoSwipe();
+     });
+     {/if}
+
+     {if isset($loaded_plugins['rv_tscroller'])}
+     $(document).ajaxComplete(function() {
+	 setupPhotoSwipe();
+     });
+     {/if}
+
+     {if !isset($loaded_plugins['piwigo-videojs']) && (isset($GThumb) || isset($GDThumb))}
+     function addVideoIndicator() {
+	 $('img.thumbnail[src*="pwg_representative"]').each(function() {
+	     $(this).closest('li').append('<i class="fas fa-file-video fa-2x video-indicator" aria-hidden="true" style="position: absolute; top: 10px; left: 10px; z-index: 100; color: #fff;"></i>');
+	 });
+     }
+     $(document).ready(function() {
+	 addVideoIndicator();
+     });
+     $(document).ajaxComplete(function() {
+	 addVideoIndicator();
+     });
+     {else}
+     $('.card-thumbnail').find('img[src*="pwg_representative"]').each(function() {
+	 $(this).closest('div').append('<i class="fas fa-file-video fa-2x video-indicator" aria-hidden="true" style="position: absolute; top: 10px; left: 10px; z-index: 100; color: #fff;"></i>');
+     });
+     {/if}
+    </script>
+{/block}
+
+{block name="content"}
     {if !empty($PLUGIN_INDEX_CONTENT_BEFORE)}{$PLUGIN_INDEX_CONTENT_BEFORE}{/if}
 
     <nav class="navbar navbar-expand-lg navbar-contextual {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg}{if $theme_config->page_header == 'fancy' && $theme_config->page_header_both_navs} navbar-transparent navbar-sm{/if} sticky-top mb-2">
@@ -69,7 +135,6 @@
 			</li>
 		    {/if}
 		    {if isset($U_SEARCH_RULES)}
-			{combine_script id='core.scripts' load='async' path='themes/legacy/js/scripts.js'}
 			<li class="nav-item">
                             <a class="nav-link" href="{$U_SEARCH_RULES}" onclick="bd_popup(this.href); return false;" title="{'Search rules'|translate}" rel="nofollow">
 				<i class="fas fa-search fa-fw" aria-hidden="true"></i><span class="d-lg-none ml-2">{'Search rules'|translate}</span>
@@ -176,18 +241,12 @@
 	    {if !empty($CATEGORIES)}
 		<!-- Start of categories -->
 		{$CATEGORIES}
-		{footer_script require='jquery'}{strip}
-		$(document).ready(function() {
-		$('#content .col-outer .card-body:has(> .card-title)').equalHeights();
-		});
-{/strip}{/footer_script}
-<!-- End of categories -->
+		<!-- End of categories -->
 	    {/if}
 
 	    {if !empty($THUMBNAILS)}
 		<!-- Start of thumbnails -->
 		<div id="thumbnails" class="row">{$THUMBNAILS}</div>
-		{footer_script require='jquery'}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
 		{if $theme_config->photoswipe}
 		    <div id="photoSwipeData">
 			{assign var=idx value=0}
@@ -200,65 +259,8 @@
 			{/foreach}
 			{include file='_photoswipe_js.tpl' selector='#photoSwipeData'}
 		    </div>
-		    {footer_script require='jquery' require='photoswipe'}{strip}
-		    $('#startSlideshow').on('click touchstart', function() {
-		    startPhotoSwipe(0);
-		    $('.pswp__button--autoplay')[0].click();
-		    });
-
-		    function setupPhotoSwipe() {
-		    $('#thumbnails').find("a:has(img):not(.addCollection)").each(function(_index) {
-		    var $pswpIndex;
-		    if ($(this).find('img').length > 0) {
-		    var _href = $(this).href;
-		    $(this).attr('href', 'javascript:;').attr('data-href', _href);
-		    if (!$(this).attr('data-index')) {
-		    $(this).attr('data-index', _index);
-		    $pswpIndex = _index;
-		    } else {
-		    $pswpIndex = $(this).data('index');
-		    }
-		    $(this).off('click tap').on('click tap', function(event) {
-		    event.preventDefault();
-		    startPhotoSwipe($pswpIndex);
-		    });
-		    }
-		    });
-		    }
-
-		    {if $theme_config->thumbnail_linkto == 'photoswipe' || ($theme_config->thumbnail_linkto == 'photoswipe_mobile_only' && get_device() != 'desktop')}
-			$(document).ready(function() {
-			setupPhotoSwipe();
-			});
-
-			{if isset($loaded_plugins['rv_tscroller'])}
-			    $(document).ajaxComplete(function() {
-			    setupPhotoSwipe();
-			    });
-			{/if}
-		    {/if}
-{/strip}{/footer_script}
 		{/if}
-		{footer_script require="jquery"}{strip}
-		{if !isset($loaded_plugins['piwigo-videojs']) && (isset($GThumb) || isset($GDThumb))}
-		    function addVideoIndicator() {
-		    $('img.thumbnail[src*="pwg_representative"]').each(function() {
-		    $(this).closest('li').append('<i class="fas fa-file-video fa-2x video-indicator" aria-hidden="true" style="position: absolute; top: 10px; left: 10px; z-index: 100; color: #fff;"></i>');
-		    });
-		    }
-		    $(document).ready(function() {
-		    addVideoIndicator();
-		    });
-		    $(document).ajaxComplete(function() {
-		    addVideoIndicator();
-		    });
-		{else}
-		    $('.card-thumbnail').find('img[src*="pwg_representative"]').each(function() {
-		    $(this).closest('div').append('<i class="fas fa-file-video fa-2x video-indicator" aria-hidden="true" style="position: absolute; top: 10px; left: 10px; z-index: 100; color: #fff;"></i>');
-		    });
-		{/if}
-{/strip}{/footer_script}
-<!-- End of thumbnails -->
+		<!-- End of thumbnails -->
 	    {/if}
 	</div>
     </div>

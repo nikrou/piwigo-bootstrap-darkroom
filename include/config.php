@@ -65,7 +65,6 @@ class Config
     const KEY_SOCIAL_VK = 'social_vk';
 
     const KEY_COMMENTS_TYPE = 'comments_type';
-    const KEY_COMMENTS_DISQUS_SHORTNAME = 'comments_disqus_shortname';
     const KEY_TAG_CLOUD_TYPE = 'tag_cloud_type';
 
     const KEY_CUSTOM_CSS = 'custom_css';
@@ -108,8 +107,7 @@ class Config
         self::KEY_SOCIAL_GOOGLE_PLUS => true,
         self::KEY_SOCIAL_PINTEREST => true,
         self::KEY_SOCIAL_VK => true,
-        self::KEY_COMMENTS_TYPE => 'piwigo',
-        self::KEY_COMMENTS_DISQUS_SHORTNAME => null,
+        self::KEY_COMMENTS_TYPE => 'phyxo',
         self::KEY_TAG_CLOUD_TYPE => 'basic',
         self::KEY_CUSTOM_CSS => null,
     );
@@ -153,7 +151,6 @@ class Config
         self::KEY_SOCIAL_PINTEREST => self::TYPE_BOOL,
         self::KEY_SOCIAL_VK => self::TYPE_BOOL,
         self::KEY_COMMENTS_TYPE => self::TYPE_STRING,
-        self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
         self::KEY_TAG_CLOUD_TYPE => self::TYPE_STRING,
         self::KEY_CUSTOM_CSS => self::TYPE_FILE,
     );
@@ -164,8 +161,10 @@ class Config
 
     public function __construct()
     {
+        // @TODO: inject conf instead
         global $conf;
 
+        $this->conf = $conf;
         // Initialise the files array
         $this->initFiles();
 
@@ -242,7 +241,8 @@ class Config
 
     public function save()
     {
-        conf_update_param(self::CONF_PARAM, json_encode($this->config));
+        $conf_param = $this->conf[self::CONF_PARAM];
+        $conf_param = json_encode($this->config);
     }
 
     private function createDefaultConfig()
@@ -283,4 +283,3 @@ class Config
         }
     }
 }
-

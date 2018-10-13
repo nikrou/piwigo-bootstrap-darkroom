@@ -1,18 +1,18 @@
 <div class="row">
+    {* this might sound ridiculous, but we want to fit the thumbnails to 90% of col-xs-12 without them being too blurry *}
+    {define_derivative name='album_derivative_params' width=520 height=360 crop=true}
+    {define_derivative name='album_derivative_params_square' type=IMG_SQUARE}
+
     {foreach $category_thumbnails as $cat}
 	{if $theme_config->category_wells == 'never' || ($theme_config->category_wells == 'mobile_only' && get_device() == 'desktop')}
-	    {assign var=derivative value=$pwg->derivative($derivative_params, $cat.representative.src_image)}
-	    {if !$derivative->is_cached()}
-		{combine_script id='jquery.ajaxmanager' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
-		{combine_script id='thumbnails.loader' path='themes/legacy/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
-	    {/if}
+	    {assign var="album_derivative" value=$pwg->derivative($album_derivative_params, $cat.representative.src_image)}
 	    {* this needs a fixed size else it messes up the grid on tablets *}
 	    {include file="grid_classes.tpl" width=260 height=180}
 	    <div class="col-outer mt-3 {if $smarty.cookies.view == 'list'}col-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
 		<div class="card card-thumbnail">
 		    <div class="h-100">
 			<a href="{$cat.URL}" class="ripple{if $smarty.cookies.view != 'list'} d-block{/if}">
-			    <img class="{if $smarty.cookies.view == 'list'}card-img-left{else}card-img-top{/if}" {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}themes/simple-responsive/img/transparent.png" data-src="{$derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|translate}">
+			    <img class="{if $smarty.cookies.view == 'list'}card-img-left{else}card-img-top{/if}" {if $album_derivative->is_cached()}src="{$album_derivative->get_url()}"{else}src="{$ROOT_URL}themes/simple-responsive/img/transparent.png" data-src="{$album_derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|translate}">
 			</a>
 			<div class="card-body">
 			    <h5 class="card-title ellipsis {if !empty($cat.icon_ts)} recent{/if}">
@@ -37,17 +37,13 @@
 		</div>
 	    </div>
 	{else}
-	    {assign var=derivative_square value=$pwg->derivative($derivative_params_square, $cat.representative.src_image)}
-	    {if !$derivative_square->is_cached()}
-		{combine_script id='jquery.ajaxmanager' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
-		{combine_script id='thumbnails.loader' path='themes/legacy/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
-	    {/if}
+	    {assign var="album_derivative_square" value=$pwg->derivative($album_derivative_params_square, $cat.representative.src_image)}
 	    <div class="col-outer col-12">
 		<div class="card">
 		    <div class="card-body p-0">
 			<a href="{$cat.URL}">
 			    <div class="media h-100">
-				<img class="d-flex mr-3" {if $derivative_square->is_cached()}src="{$derivative_square->get_url()}"{else}src="{$ROOT_URL}themes/simple-responsive/img/transparent.png" data-src="{$derivative_square->get_url()}"{/if} alt="{$cat.TN_ALT}">
+				<img class="d-flex mr-3" {if $album_derivative_square->is_cached()}src="{$album_derivative_square->get_url()}"{else}src="{$ROOT_URL}themes/simple-responsive/img/transparent.png" data-src="{$album_derivative_square->get_url()}"{/if} alt="{$cat.TN_ALT}">
 				<div class="media-body pt-2">
 				    <h4 class="mt-0 mb-1">{$cat.NAME}</h4>
 				    {if not empty($cat.DESCRIPTION)}

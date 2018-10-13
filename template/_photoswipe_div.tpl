@@ -10,9 +10,9 @@
              <div class="pswp__top-bar">
                  <div class="pswp__counter"></div>
                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-{if $theme_config->social_enabled}
-                 <button class="pswp__button pswp__button--share" title="Share"></button>
-{/if}
+		 {if $theme_config->social_enabled}
+                     <button class="pswp__button pswp__button--share" title="Share"></button>
+		 {/if}
                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
                  <button class="pswp__button pswp__button--details" title="Picture details"></button>

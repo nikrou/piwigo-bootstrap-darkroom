@@ -1,20 +1,24 @@
 {extends file="__layout.tpl"}
 
+{block name="head_assets" append}
+    <link rel="stylesheet" type="text/css" href="{$ROOT_URL}themes/simple-responsive/css/selectize-bootstrap.css">
+{/block}
+
+{block name="footer_assets" append}
+    <script src="{$ROOT_URL}themes/simple-responsive/js/selectize.min.js"></script>
+    <script>
+	$(function() {
+	    $("#authors, #tags, #categories").each(function() {
+		$(this).selectize({
+		    plugins: ['remove_button'],
+		    maxOptions: $(this).find("option").length
+		});
+	    })
+	});
+    </script>
+{/block}
+
 {block name="content"}
-
-    {combine_css path="themes/simple-responsive/css/selectize-bootstrap.css"}
-    {combine_script id='jquery.selectize' load='footer' require='jquery' path="themes/simple-responsive/js/selectize.min.js"}
-    {footer_script require='jquery'}
-    jQuery(document).ready(function() {
-    jQuery("#authors, #tags, #categories").each(function() {
-    jQuery(this).selectize({
-    plugins: ['remove_button'],
-    maxOptions:jQuery(this).find("option").length
-    });
-    })
-    });
-    {/footer_script}
-
     <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-5">
 	<div class="container{if $theme_config->fluid_width}-fluid{/if}">
             <div class="navbar-brand mr-auto">
@@ -196,7 +200,7 @@
 	</form>
     </div>
 
-    <script type="text/javascript"><!--
-				   document.getElementById('search_allwords').focus();
-     //--></script>
+    <script>
+     document.getElementById('search_allwords').focus();
+    </script>
 {/block}

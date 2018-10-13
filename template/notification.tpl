@@ -1,11 +1,11 @@
 {extends file="__layout.tpl"}
 
-{block name="content"}
-    {html_head}
+{block name="head_assets" append}
     <link rel="alternate" type="application/rss+xml" title="{'Photos only RSS feed'|translate}" href="{$U_FEED_IMAGE_ONLY}">
     <link rel="alternate" type="application/rss+xml" title="{'Complete RSS feed (photos, comments)'|translate}" href="{$U_FEED}">
-    {/html_head}
+{/block}
 
+{block name="content"}
     <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-5">
 	<div class="container{if $theme_config->fluid_width}-fluid{/if}">
             <div class="navbar-brand mr-auto">

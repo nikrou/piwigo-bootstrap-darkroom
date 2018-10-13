@@ -33,12 +33,15 @@ $themeconf = [
     'url' => 'https://www.phyxo.net/'
 ];
 
+
 // always show metadata initially
 $_SESSION['show_metadata'] = true;
 
 // register video files
 $video_ext = ['mp4', 'm4v'];
-$conf['file_ext'] = array_merge($conf['file_ext'], $video_ext, array_map('strtoupper', $video_ext));
+if (!empty($conf['file_ext'])) {
+    $conf['file_ext'] = array_merge($conf['file_ext'], $video_ext, array_map('strtoupper', $video_ext));
+}
 
 $controller = new \BootstrapDarkroom\ThemeController();
 $controller->init();

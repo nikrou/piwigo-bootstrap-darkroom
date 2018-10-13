@@ -1,15 +1,3 @@
-{if isset($comment_derivative_params)}
-    {strip}{html_style}
-    .commentElement .illustration{
-    width:{$comment_derivative_params->max_width()+5}px
-    }
-
-    .content .commentElement .description{
-    min-height:{$comment_derivative_params->max_height()+5}px
-    }
-{/html_style}{/strip}
-{footer_script}var error_icon = "{$ROOT_URL}{$themeconf.icon_dir}/errors_small.png";{/footer_script}
-{/if}
 <div id="commentList">
     {foreach from=$comments item=comment name=comment_loop}
 	<div class="comment">
@@ -21,10 +9,6 @@
 			{define_derivative name='cropped_derivative_params' width=$derivative_params->sizing->ideal_size[0] height=$derivative_params->sizing->ideal_size[0] crop=true}
 		    {/if}
 		    {assign var=derivative value=$pwg->derivative($cropped_derivative_params, $comment.src_image)}
-		    {if !$derivative->is_cached()}
-			{combine_script id='jquery.ajaxmanager' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
-			{combine_script id='thumbnails.loader' path='themes/legacy/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
-		    {/if}
 		    <a href="{$comment.U_PICTURE}">
 			<img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$comment.ALT}">
 		    </a>

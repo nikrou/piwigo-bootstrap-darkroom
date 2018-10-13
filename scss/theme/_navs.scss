@@ -16,13 +16,13 @@
   &.navbar-main {
     z-index: 1031;
   }
-                                                                                                                                                                  
+
   &.navbar-contextual {
     font-weight: 400;
     margin-bottom: 2rem;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-                                                                                                                                                                    
+
     .navbar-brand {
       @include media-breakpoint-down(sm) {
         max-width: 88%;
@@ -64,7 +64,7 @@
       padding-top: 5px;
       padding-bottom: 5px;
       margin-top: -99px;
-      box-shadow: $bd-boxshadow-sm; 
+      box-shadow: $bd-boxshadow-sm;
       border-style: none;
 
       .collapse.show,
@@ -106,7 +106,7 @@
         color: $white;
       }
     }
-    
+
   }
 
   .navbar-collapse {
@@ -143,7 +143,7 @@
 }
 
 #identificationDropdown .dropdown-menu { min-width: 12rem; }
-                                                                                                                                                                    
+
 // replace the home link in navbar
 .navbar-brand a:first-child {
   font-size: 0;
@@ -173,16 +173,16 @@
     float: left;
     position: relative;
     padding-right: 0px;
-                                                                                                                                                                    
+
     input.form-control {
       padding-left: 0px;
       padding-right: 0px;
     }
-                                                                                                                                                                    
+
     input {
       text-indent: 10px;
     }
-                                                                                                                                                                    
+
     input[type="text"] {
       background: 14px;
       width: 1px;
@@ -312,7 +312,7 @@
   & > .nav-breadcrumb-item {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;    
+    text-overflow: ellipsis;
   }
 
   & > *:nth-child(n+2) {
@@ -322,7 +322,7 @@
   @include media-breakpoint-up(xl) {
     & > *:nth-last-child(-n+6) {
         display:block;
-    } 
+    }
     & > .nav-breadcrumb-item {
         max-width: 300px;
     }
@@ -331,7 +331,7 @@
   @include media-breakpoint-between(md, lg) {
     & > *:nth-last-child(-n+4) {
         display:block;
-    } 
+    }
     & > .nav-breadcrumb-item {
         max-width: 270px;
     }

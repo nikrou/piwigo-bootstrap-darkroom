@@ -2,7 +2,7 @@
     {if !empty($related_tags)}
 	<div id="Tags" class="imageInfo">
 	    {foreach $related_tags as $tag}
-		<a class="btn btn-primary btn-raised mr-1{if !$tag.validated}pending{if $tag.status==1} added{else} deleted{/if}{/if}" href="{$tag.URL}">{$tag.name}</a>
+		<a class="btn btn-primary btn-raised mr-1{if !$tag.validated} pending{if $tag.status==1} added{else} deleted{/if}{/if}" href="{$tag.URL}">{$tag.name}</a>
 	    {/foreach}
 	</div>
     {/if}

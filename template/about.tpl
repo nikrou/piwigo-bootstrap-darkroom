@@ -20,15 +20,6 @@
 		{if isset($THEME_ABOUT) }
 		    {$THEME_ABOUT}
 		{/if}
-
-		{if not empty($about_msgs)}
-		    {foreach $about_msgs as $elt}
-			{$elt}
-		    {/foreach}
-		{/if}
-		<div>
-		    <a href="https://github.com/tkuther/piwigo-bootstrap-darkroom">Bootstrap Darkroom Theme</a> by Thomas Kuther.
-		</div>
 	    </div>
 	</div>
     </div>

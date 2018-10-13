@@ -176,3 +176,11 @@
 .js-hidden {
     display: none;
 }
+
+.pending.deleted {
+    background-color: $pink;
+}
+
+.pending.added {
+    background-color: $green;
+}

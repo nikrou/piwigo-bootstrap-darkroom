@@ -64,32 +64,6 @@
 								<span class="rateButtonStarEmpty" data-value="{$mark}"></span>
 							    {/if}
 							{/foreach}
-							{strip}{combine_script id='core.scripts' path='themes/legacy/js/scripts.js' load='async'}
-							{combine_script id='rating' require='core.scripts' path='themes/simple-responsive/js/rating.js' load='async'}
-							{footer_script require='jquery'}
-							var _pwgRatingAutoQueue = _pwgRatingAutoQueue||[];
-							_pwgRatingAutoQueue.push( {ldelim}rootUrl: '{$ROOT_URL}', image_id: {$current.id},
-							onSuccess : function(rating) {ldelim}
-							var e = document.getElementById("updateRate");
-							if (e) e.innerHTML = "{'Update your rating'|translate|@escape:'javascript'}";
-							e = document.getElementById("ratingScore");
-							if (e) e.innerHTML = rating.score;
-							e = document.getElementById("ratingCount");
-							if (e) {ldelim}
-                                                        if (rating.count == 1) {ldelim}
-                                                        e.innerHTML = "({'%d rate'|translate|@escape:'javascript'})".replace( "%d", rating.count);
-                                                        {rdelim} else {ldelim}
-                                                        e.innerHTML = "({'%d rates'|translate|@escape:'javascript'})".replace( "%d", rating.count);
-                                                        {rdelim}
-							{rdelim}
-							$('#averageRate').find('span').each(function() {ldelim}
-                                                        $(this).addClass(rating.average > $(this).data('value') - 0.5 ? 'rateButtonStarFull' : 'rateButtonStarEmpty');
-                                                        $(this).removeClass(rating.average > $(this).data('value') - 0.5 ? 'rateButtonStarEmpty' : 'rateButtonStarFull');
-							{rdelim});
-							{rdelim}
-							{rdelim});
-                          {/footer_script}
-                          {/strip}
 						    </div>
 						</form>
 					    </div>
@@ -155,23 +129,6 @@
 				    </tr>
 				{/if}
 				{if $display_info.privacy_level and isset($available_permission_levels)}
-				    {combine_script id='core.scripts' load='async' path='themes/legacy/js/scripts.js'}
-				    {footer_script require='jquery'}{strip}
-				    function setPrivacyLevel(id, level, label) {
-				    (new PwgWS('{$ROOT_URL}')).callService(
-				    "pwg.images.setPrivacyLevel", { image_id:id, level:level},
-				    {
-				    method: "POST",
-				    onFailure: function(num, text) { alert(num + " " + text); },
-				    onSuccess: function(result) {
-				    jQuery('#dropdownPermissions').html(label);
-				    jQuery('.permission-li').removeClass('active');
-				    jQuery('#permission-' + level).addClass('active');
-				    }
-				    }
-				    );
-				    }
-                                    {/strip}{/footer_script}
 				    <tr>
 					<th scope="row">{'Who can see this photo?'|translate}</dt>
 					    <td>

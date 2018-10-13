@@ -14,18 +14,20 @@ if (!defined('PHPWG_ROOT_PATH')) {
 }
 
 use Phyxo\TabSheet\TabSheet;
+use Phyxo\Functions\Language;
+use Phyxo\Functions\URL;
 
 // Includes
 require_once(__DIR__ . '/../include/config.php');
 
-load_language('theme.lang', PHPWG_THEMES_PATH . 'simple-responsive/');
+Language::load_language('theme.lang', PHPWG_THEMES_PATH . 'simple-responsive/');
 
 // Constants
 define('THEME_ID', basename(dirname(dirname(__FILE__))));
-define('ADMIN_PATH', get_root_url() . 'admin.php?page=theme&theme=' . THEME_ID);
+define('ADMIN_PATH', URL::get_root_url() . 'admin.php?page=theme&theme=' . THEME_ID);
 define('TAB_SETTINGS', 'settings');
 define('TAB_ABOUT', 'about');
-define('TAB_URL', get_root_url() . 'admin/index.php?page=theme&amp;theme=simple-responsive');
+define('TAB_URL', URL::get_root_url() . 'admin/index.php?page=theme&amp;theme=simple-responsive');
 
 // Get current tab
 $page['tab'] = isset($_GET['tab']) ? $_GET['tab'] : $page['tab'] = TAB_SETTINGS;
@@ -44,8 +46,8 @@ if ($page['tab'] == TAB_SETTINGS) {
 }
 // TabSheet
 $tabsheet = new TabSheet();
-$tabsheet->add(TAB_SETTINGS, l10n('Settings'), TAB_URL . '&amp;tab=' . TAB_SETTINGS);
-$tabsheet->add(TAB_ABOUT, l10n('About'), TAB_URL . '&amp;tab=' . TAB_ABOUT);
+$tabsheet->add(TAB_SETTINGS, \Phyxo\Functions\Language::l10n('Settings'), TAB_URL . '&amp;tab=' . TAB_SETTINGS);
+$tabsheet->add(TAB_ABOUT, \Phyxo\Functions\Language::l10n('About'), TAB_URL . '&amp;tab=' . TAB_ABOUT);
 $tabsheet->select($page['tab']);
 $template->assign(['tabsheet' => $tabsheet]);
 

@@ -72,7 +72,7 @@
 	</form>
     </div>
 
-    <script type="text/javascript"><!--
-				   document.getElementById('login').focus();
-     //--></script>
+    <script>
+     document.getElementById('login').focus();
+    </script>
 {/block}

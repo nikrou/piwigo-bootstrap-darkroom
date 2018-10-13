@@ -1,5 +1,30 @@
 {extends file="__layout.tpl"}
 
+{block name="footer_assets" append}
+    <script src="{$ROOT_URL}themes/simple-responsive/js/jquery.awesomeCloud.js"></script>
+    <script>
+	$(function(){
+	    $("#tagCloudCanvas").awesomeCloud({
+		"size" : {
+		    "grid": 12,
+		    "factor": 0,
+		    "normalize": false
+		},
+		"options": {
+		    "color": "gradient",
+		    "rotationRatio": 0.2,
+		},
+		"color": {
+		    "start": $('#tagCloudGradientStart').css('color'),
+		    "end": $('#tagCloudGradientEnd').css('color')
+		},
+		"font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
+		"shape": "circle"
+	    });
+	});
+    </script>
+{/block}
+
 {block name="content"}
     <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-5">
 	<div class="container{if $theme_config->fluid_width}-fluid{/if}">
@@ -46,28 +71,6 @@
 		    {/foreach}
 		</div>
 	    {else}
-		{combine_script id='jquery.awesomeCloud' load='footer' path="themes/simple-responsive/js/jquery.awesomeCloud.js"}
-		{footer_script require='jquery.awesomeCloud'}{strip}
-		$(document).ready(function(){
-		$("#tagCloudCanvas").awesomeCloud({
-		"size" : {
-                "grid": 12,
-                "factor": 0,
-                "normalize": false
-		},
-		"options": {
-                "color": "gradient",
-                "rotationRatio": 0.2,
-		},
-		"color": {
-                "start": $('#tagCloudGradientStart').css('color'),
-                "end": $('#tagCloudGradientEnd').css('color')
-		},
-		"font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
-		"shape": "circle"
-		});
-		});
-               {/strip}{/footer_script}
 	       <div id="tagCloudCanvas">
 		   {foreach $tags as $tag}
 		       <span data-weight="{$tag.counter}"><a href="{$tag.URL}">{$tag.name}</a></span>

@@ -1,5 +1,16 @@
 {extends file="__layout.tpl"}
 
+{block name="head_assets" append}
+    <style type="text/css">
+     #calMonth .calImg{
+	 width:{$chronology_calendar.month_view.CELL_WIDTH}px;height:{$chronology_calendar.month_view.CELL_HEIGHT}px
+     }
+     #calMonth td{
+	 width:{$chronology_calendar.month_view.CELL_WIDTH}px;height:{$chronology_calendar.month_view.CELL_HEIGHT + 29}px
+     }
+    </style>
+{/block}
+
 {block name="content"}
     {if !empty($chronology_navigation_bars)}
 	{foreach from=$chronology_navigation_bars item=bar}
@@ -73,14 +84,6 @@
 			{/foreach}
 		    </tr>
 		</thead>
-		{html_style}
-		#calMonth .calImg{
-		width:{$chronology_calendar.month_view.CELL_WIDTH}px;height:{$chronology_calendar.month_view.CELL_HEIGHT}px
-		}
-		#calMonth td{
-		width:{$chronology_calendar.month_view.CELL_WIDTH}px;height:{$chronology_calendar.month_view.CELL_HEIGHT + 29}px
-		}
-               {/html_style}
 	       {foreach from=$chronology_calendar.month_view.weeks item=week}
 		   <tr>
 		       {foreach from=$week item=day}

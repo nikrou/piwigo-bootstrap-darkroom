@@ -298,25 +298,6 @@
 		</ul>
 	    </div>
 	    <div class="fieldset">
-		<h3>{'Comments'|translate}</h3>
-		<ul>
-		    <li>
-			<label class="radio">
-			    <input type="radio" name="comments_type" value="phyxo"{if $theme_config->comments_type == 'phyxo'} checked="checked"{/if} />
-			    {'Phyxo'|translate}
-			</label>
-			<label class="radio">
-			    <input id="comments_radio_disqus" type="radio" name="comments_type" value="disqus"{if $theme_config->comments_type == 'disqus'} checked="checked"{/if} />
-			    {'Disqus'|translate}
-			</label>
-		    </li>
-		    <li id="comments_type_disqus">
-			<label for="comments_disqus_shortname">{'Disqus shortname'|translate}</label><br />
-			<input id="comments_disqus_shortname" name="comments_disqus_shortname" type="text" value="{$theme_config->comments_disqus_shortname}" size="50" />
-		    </li>
-		</ul>
-	    </div>
-	    <div class="fieldset">
 		<h3>{'Tag cloud'|translate}</h3>
 		<ul>
 		    <li>
@@ -398,7 +379,6 @@
 (function(){
 var targets = {
 'input[name="social_enabled"]': ['#social_twitter', '#social_facebook', '#social_google_plus', '#social_pinterest', '#social_vk', '#social_buttons'],
-'#comments_radio_disqus': ['#comments_type_disqus'],
 'input[name="fluid_width"]': ['#fluid_width_col_xxl'],
 'input[name="logo_image_enabled"]': ['#logo_image_path'],
 };
