@@ -1,5 +1,5 @@
 <div id="commentList">
-    {foreach from=$comments item=comment name=comment_loop}
+    {foreach $comments as $comment}
 	<div class="comment">
 	    {if isset($comment.src_image)}
 		<div class="image">

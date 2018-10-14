@@ -21,15 +21,12 @@ use Phyxo\Functions\URL;
 
 class ThemeController
 {
-    private $config;
+    private $config, $core_config;
 
-    public function __construct()
+    public function __construct(\Phyxo\Conf $conf)
     {
-        // @TODO: inject conf instead
-        global $conf;
-
-        $this->conf = $conf;
-        $this->config = new Config();
+        $this->core_config = $conf;
+        $this->config = new Config($conf);
     }
 
     public function init()
@@ -60,17 +57,17 @@ class ThemeController
     {
         global $template;
 
-        if (array_key_exists('bootstrap_darkroom_navbar_main_style', $this->conf) && !empty($this->conf['bootstrap_darkroom_navbar_main_style'])) {
-            $this->config->navbar_main_style = $this->conf['bootstrap_darkroom_navbar_main_style'];
+        if (array_key_exists('bootstrap_darkroom_navbar_main_style', $this->core_config) && !empty($this->core_config['bootstrap_darkroom_navbar_main_style'])) {
+            $this->config->navbar_main_style = $this->core_config['bootstrap_darkroom_navbar_main_style'];
         }
-        if (array_key_exists('bootstrap_darkroom_navbar_main_bg', $this->conf) && !empty($this->conf['bootstrap_darkroom_navbar_main_bg'])) {
-            $this->config->navbar_main_bg = $this->conf['bootstrap_darkroom_navbar_main_bg'];
+        if (array_key_exists('bootstrap_darkroom_navbar_main_bg', $this->core_config) && !empty($this->core_config['bootstrap_darkroom_navbar_main_bg'])) {
+            $this->config->navbar_main_bg = $this->core_config['bootstrap_darkroom_navbar_main_bg'];
         }
-        if (array_key_exists('bootstrap_darkroom_navbar_contextual_style', $this->conf) && !empty($this->conf['bootstrap_darkroom_navbar_contextual_style'])) {
-            $this->config->navbar_contextual_style = $this->conf['bootstrap_darkroom_navbar_contextual_style'];
+        if (array_key_exists('bootstrap_darkroom_navbar_contextual_style', $this->core_config) && !empty($this->core_config['bootstrap_darkroom_navbar_contextual_style'])) {
+            $this->config->navbar_contextual_style = $this->core_config['bootstrap_darkroom_navbar_contextual_style'];
         }
-        if (array_key_exists('bootstrap_darkroom_navbar_contextual_bg', $this->conf) && !empty($this->conf['bootstrap_darkroom_navbar_contextual_bg'])) {
-            $this->config->navbar_contextual_bg = $this->conf['bootstrap_darkroom_navbar_contextual_bg'];
+        if (array_key_exists('bootstrap_darkroom_navbar_contextual_bg', $this->core_config) && !empty($this->core_config['bootstrap_darkroom_navbar_contextual_bg'])) {
+            $this->config->navbar_contextual_bg = $this->core_config['bootstrap_darkroom_navbar_contextual_bg'];
         }
 
         $template->assign('theme_config', $this->config);
@@ -114,10 +111,10 @@ class ThemeController
 
         $template->assign(array(
             'loaded_plugins' => $GLOBALS['pwg_loaded_plugins'],
-            'meta_ref_enabled' => $this->conf['meta_ref']
+            'meta_ref_enabled' => $this->core_config['meta_ref']
         ));
-        if (array_key_exists('bootstrap_darkroom_core_js_in_header', $this->conf)) {
-            $template->assign('bootstrap_darkroom_core_js_in_header', $this->conf['bootstrap_darkroom_core_js_in_header']);
+        if (array_key_exists('bootstrap_darkroom_core_js_in_header', $this->core_config)) {
+            $template->assign('bootstrap_darkroom_core_js_in_header', $this->core_config['bootstrap_darkroom_core_js_in_header']);
         } else {
             $template->assign('bootstrap_darkroom_core_js_in_header', false);
         }
@@ -138,8 +135,8 @@ class ThemeController
 
     public function exifReplacements($exif)
     {
-        if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $this->conf)) {
-            foreach ($this->conf['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
+        if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $this->core_config)) {
+            foreach ($this->core_config['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
                 if (is_array($exif) && array_key_exists($tag, $exif)) {
                     $exif[$tag] = str_replace($replacement[0], $replacement[1], $exif[$tag]);
                 }
@@ -222,8 +219,8 @@ class ThemeController
         $theme_config = $template->get_template_vars('theme_config');
 
         if ($theme_config->photoswipe_metadata) {
-            if (array_key_exists('bootstrap_darkroom_ps_exif_mapping', $this->conf)) {
-                $exif_mapping = $this->conf['bootstrap_darkroom_ps_exif_mapping'];
+            if (array_key_exists('bootstrap_darkroom_ps_exif_mapping', $this->core_config)) {
+                $exif_mapping = $this->core_config['bootstrap_darkroom_ps_exif_mapping'];
             } else {
                 $exif_mapping = array(
                     'date_creation' => 'DateTimeOriginal',
@@ -267,8 +264,8 @@ class ThemeController
                 ));
 
                 //optional replacements
-                if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $this->conf)) {
-                    foreach ($this->conf['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
+                if (array_key_exists('bootstrap_darkroom_ps_exif_replacements', $this->core_config)) {
+                    foreach ($this->core_config['bootstrap_darkroom_ps_exif_replacements'] as $tag => $replacement) {
                         if (array_key_exists($tag, $tpl_var['EXIF'])) {
                             $tpl_var['EXIF'][$tag] = str_replace($replacement[0], $replacement[1], $tpl_var['EXIF'][$tag]);
                         }

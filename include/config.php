@@ -13,7 +13,6 @@ namespace BootstrapDarkroom;
 
 class Config
 {
-
     const CONF_PARAM = 'bootstrap_darkroom';
     const CONF_VERSION = 20;
 
@@ -158,13 +157,12 @@ class Config
     private $config = array();
 
     private $files = array();
+    private $core_config = [];
 
-    public function __construct()
+    public function __construct(\Phyxo\Conf $conf)
     {
-        // @TODO: inject conf instead
-        global $conf;
+        $this->core_config = $conf;
 
-        $this->conf = $conf;
         // Initialise the files array
         $this->initFiles();
 
@@ -188,6 +186,7 @@ class Config
         if (is_array($loaded)) {
             $this->populateConfig($loaded);
         }
+
         $this->save();
     }
 
@@ -241,8 +240,7 @@ class Config
 
     public function save()
     {
-        $conf_param = $this->conf[self::CONF_PARAM];
-        $conf_param = json_encode($this->config);
+        $this->core_config->addOrUpdateParam(self::CONF_PARAM, $this->config);
     }
 
     private function createDefaultConfig()

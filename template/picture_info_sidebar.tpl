@@ -54,7 +54,7 @@
 		<div id="Tags" class="imageInfo">
                     <dt>{'Tags'|translate}</dt>
                     <dd>
-			{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
+			{foreach $related_tags as $tag}{if !$tag@first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
                     </dd>
 		</div>
 	    {/if}
@@ -62,8 +62,8 @@
 		<div id="Categories" class="imageInfo">
 		    <dt>{'Albums'|translate}</dt>
                     <dd>
-			{foreach from=$related_categories item=cat name=cat_loop}
-			    {if !$smarty.foreach.cat_loop.first}<br />{/if}{$cat}
+			{foreach $related_categories as $cat}
+			    {if !$cat@first}<br />{/if}{$cat}
 			{/foreach}
                     </dd>
 		</div>
@@ -87,7 +87,7 @@
                     <dd>
                         <form action="{$rating.F_ACTION}" method="post" id="rateForm" style="margin:0;">
                             <div>
-				{foreach from=$rating.marks item=mark name=rate_loop}
+				{foreach $rating.marks as $mark}
 				    {if isset($rating.USER_RATE) && $mark==$rating.USER_RATE}
 					<span class="rateButtonStarFull" data-value="{$mark}"></span>
 				    {else}
@@ -108,7 +108,7 @@
 				{$available_permission_levels[$current.level]}
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownPermissions">
-				{foreach from=$available_permission_levels item=label key=level}
+				{foreach $available_permission_levels as $level => $label}
 				    <a id="permission-{$level}" class="dropdown-item permission-li {if $current.level == $level} active{/if}" href="javascript:setPrivacyLevel({$current.id},{$level},'{$label}')">{$label}</a>
 				{/foreach}
                             </div>
@@ -117,10 +117,10 @@
 		</div>
 	    {/if}
 	    {if isset($metadata)}
-		{foreach from=$metadata item=meta}
+		{foreach $metadata as $meta}
 		    <br />
 		    <h4>{$meta.TITLE}</h4>
-		    {foreach from=$meta.lines item=value key=label}
+		    {foreach $meta.lines as $label => $value}
 			<dt>{$label}</dt>
 			<dd>{$value}</dd>
 		    {/foreach}

@@ -95,7 +95,7 @@
 				<i class="fas fa-sort fa-fw" aria-hidden="true"></i><span class="d-lg-none ml-2">{'Sort order'|translate}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-				{foreach from=$image_orders item=image_order name=loop}
+				{foreach $image_orders as $image_order}
 				    <a class="dropdown-item{if $image_order.SELECTED} active{/if}" href="{$image_order.URL}" rel="nofollow">{$image_order.DISPLAY}</a>
 				{/foreach}
                             </div>
@@ -107,7 +107,7 @@
 				<i class="far fa-image fa-fw" aria-hidden="true"></i><span class="d-lg-none ml-2">{'Photo sizes'|translate}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-				{foreach from=$image_derivatives item=image_derivative name=loop}
+				{foreach $image_derivatives as $image_derivative}
 				    <a class="dropdown-item{if $image_derivative.SELECTED} active{/if}" href="{$image_derivative.URL}" rel="nofollow">{$image_derivative.DISPLAY}</a>
 				{/foreach}
                             </div>
@@ -181,7 +181,7 @@
                             </div>
 			</li>
 		    {/if}
-		    {if !empty($PLUGIN_INDEX_BUTTONS)}{foreach from=$PLUGIN_INDEX_BUTTONS item=button}<li>{$button}</li>{/foreach}{/if}
+		    {if !empty($PLUGIN_INDEX_BUTTONS)}{foreach $PLUGIN_INDEX_BUTTONS as $button}<li>{$button}</li>{/foreach}{/if}
 		    {if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}
 		    {if ((!empty($CATEGORIES) && !isset($GDThumb)) || (!empty($THUMBNAILS) && !isset($GThumb) && !isset($GDThumb))) && ($theme_config->category_wells == 'never' || ($theme_config->category_wells == 'mobile_only' && get_device() == 'desktop'))}
 			<li id="btn-grid" class="nav-item{if $smarty.cookies.view != 'list'} active{/if}">
@@ -208,10 +208,10 @@
 	{if isset($chronology_views)}
 	    <div id="calendar-select" class="btn-group">
 		<button id="calendar-view" type="button" class="btn btn-primary btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    {foreach from=$chronology_views item=view}{if $view.SELECTED}{$view.CONTENT}{/if}{/foreach}
+		    {foreach $chronology_views as $view}{if $view.SELECTED}{$view.CONTENT}{/if}{/foreach}
 		</button>
 		<div class="dropdown-menu" aria-labelledby="calendar-view">
-		    {foreach from=$chronology_views item=view name=loop}
+		    {foreach $chronology_views as $view}
 			<a class="dropdown-item {if $view.SELECTED} active{/if}" href="{$view.VALUE}">{$view.CONTENT}</a>
 		    {/foreach}
 		</div>
@@ -249,13 +249,11 @@
 		<div id="thumbnails" class="row">{$THUMBNAILS}</div>
 		{if $theme_config->photoswipe}
 		    <div id="photoSwipeData">
-			{assign var=idx value=0}
-			{foreach from=$thumbnails item=thumbnail}
+			{foreach $thumbnails as $thumbnail}
 			    {assign var=derivative_medium value=$pwg->derivative($derivative_params_medium, $thumbnail.src_image)}
 			    {assign var=derivative_large value=$pwg->derivative($derivative_params_large, $thumbnail.src_image)}
 			    {assign var=derivative_xxlarge value=$pwg->derivative($derivative_params_xxlarge, $thumbnail.src_image)}
-			    <a href="{$thumbnail.URL}" data-index="{$idx}" data-name="{$thumbnail.NAME}" data-description="{$thumbnail.DESCRIPTION}" data-src-medium="{$derivative_medium->get_url()}" data-size-medium="{$derivative_medium->get_size_hr()}" data-src-large="{$derivative_large->get_url()}" data-size-large="{$derivative_large->get_size_hr()}" data-src-xlarge="{$derivative_xxlarge->get_url()}" data-size-xlarge="{$derivative_xxlarge->get_size_hr()}"{if preg_match("/(mp4|m4v)$/", $thumbnail.PATH)} data-src-original="{$U_HOME}{$thumbnail.PATH}" data-size-original="{$thumbnail.SIZE}" data-video="true"{else}{if $theme_config->photoswipe_metadata} data-exif-make="{$thumbnail.EXIF.make}" data-exif-model="{$thumbnail.EXIF.model}" data-exif-lens="{$thumbnail.EXIF.lens}" data-exif-iso="{$thumbnail.EXIF.iso}" data-exif-apperture="{$thumbnail.EXIF.apperture}" data-exif-shutter-speed="{$thumbnail.EXIF.shutter_speed}" data-exif-focal-length="{$thumbnail.EXIF.focal_length}" data-date-created="{$thumbnail.DATE_CREATED}"{/if}{/if}></a>
-			    {assign var=idx value=$idx+1}
+			    <a href="{$thumbnail.URL}" data-index="{$thumbnail@index}" data-name="{$thumbnail.NAME}" data-description="{$thumbnail.DESCRIPTION}" data-src-medium="{$derivative_medium->get_url()}" data-size-medium="{$derivative_medium->get_size_hr()}" data-src-large="{$derivative_large->get_url()}" data-size-large="{$derivative_large->get_size_hr()}" data-src-xlarge="{$derivative_xxlarge->get_url()}" data-size-xlarge="{$derivative_xxlarge->get_size_hr()}"{if preg_match("/(mp4|m4v)$/", $thumbnail.PATH)} data-src-original="{$U_HOME}{$thumbnail.PATH}" data-size-original="{$thumbnail.SIZE}" data-video="true"{else}{if $theme_config->photoswipe_metadata} data-exif-make="{$thumbnail.EXIF.make}" data-exif-model="{$thumbnail.EXIF.model}" data-exif-lens="{$thumbnail.EXIF.lens}" data-exif-iso="{$thumbnail.EXIF.iso}" data-exif-apperture="{$thumbnail.EXIF.apperture}" data-exif-shutter-speed="{$thumbnail.EXIF.shutter_speed}" data-exif-focal-length="{$thumbnail.EXIF.focal_length}" data-date-created="{$thumbnail.DATE_CREATED}"{/if}{/if}></a>
 			{/foreach}
 			{include file='_photoswipe_js.tpl' selector='#photoSwipeData'}
 		    </div>
@@ -280,8 +278,8 @@
 	    <h3 class="category_search_results">{'Album results for'|translate} <em><strong>{$QUERY_SEARCH}</strong></em></h3>
 	    <p>
 		<em><strong>
-		    {foreach from=$category_search_results item=res name=res_loop}
-			{if !$smarty.foreach.res_loop.first} &mdash; {/if}
+		    {foreach $category_search_results as $res}
+			{if !$res@first} &mdash; {/if}
 			{$res}
 		    {/foreach}
 		</strong></em>
@@ -294,8 +292,8 @@
 	    <h3 class="tag_search_results">{'Tag results for'|translate} <em><strong>{$QUERY_SEARCH}</strong></em></h3>
 	    <p>
 		<em><strong>
-		    {foreach from=$tag_search_results item=tag name=res_loop}
-			{if !$smarty.foreach.res_loop.first} &mdash; {/if}
+		    {foreach $tag_search_results as $tag}
+			{if !$tag@first} &mdash; {/if}
 			<a href="{$tag.URL}">{$tag.name}</a>
 		    {/foreach}
 		</strong></em>

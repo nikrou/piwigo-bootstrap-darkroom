@@ -35,8 +35,8 @@ if (!in_array($page['tab'], array(TAB_SETTINGS, TAB_ABOUT))) {
     $page['tab'] = TAB_SETTINGS;
 }
 
-$themeconfig = new \BootstrapDarkroom\Config();
 
+$themeconfig = new \BootstrapDarkroom\Config($conf);
 // Save settings
 if ($page['tab'] == TAB_SETTINGS) {
     if (isset($_POST['boostrap_darkroom_settings'])) {
@@ -51,15 +51,8 @@ $tabsheet->add(TAB_ABOUT, \Phyxo\Functions\Language::l10n('About'), TAB_URL . '&
 $tabsheet->select($page['tab']);
 $template->assign(['tabsheet' => $tabsheet]);
 
-// Fetch the template.
-global $template;
-
 // Add our template to the global template
-$template->set_filenames(
-    array(
-        'theme_admin_content' => dirname(__FILE__) . '/template/' . $page['tab'] . '.tpl'
-    )
-);
+$template->set_filename('theme_admin_content', dirname(__FILE__) . '/template/' . $page['tab'] . '.tpl');
 
 // Assign the template contents to ADMIN_CONTENT
 $template->assign('theme_config', $themeconfig);

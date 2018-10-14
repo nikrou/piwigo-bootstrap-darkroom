@@ -3,25 +3,26 @@
 {block name="footer_assets" append}
     <script src="{$ROOT_URL}themes/simple-responsive/js/jquery.awesomeCloud.js"></script>
     <script>
-	$(function(){
-	    $("#tagCloudCanvas").awesomeCloud({
-		"size" : {
-		    "grid": 12,
-		    "factor": 0,
-		    "normalize": false
-		},
-		"options": {
-		    "color": "gradient",
-		    "rotationRatio": 0.2,
-		},
-		"color": {
-		    "start": $('#tagCloudGradientStart').css('color'),
-		    "end": $('#tagCloudGradientEnd').css('color')
-		},
-		"font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
-		"shape": "circle"
-	    });
-	});
+     $(function(){
+	 $("#tagCloudCanvas").awesomeCloud({
+	     "size" : {
+		 "grid": 12,
+		 "factor": 0,
+		 "normalize": false
+	     },
+	     "options": {
+		 "color": "random-light",
+		 "rotationRatio": 0.4,
+	     },
+	     "color": {
+		 "start": $('#tagCloudGradientStart').css('color'),
+		 "end": $('#tagCloudGradientEnd').css('color')
+
+	     },
+	     "font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
+	     "shape": "circle"
+	 });
+     });
     </script>
 {/block}
 
@@ -62,22 +63,21 @@
     {include file='infos_errors.tpl'}
 
     <div class="container{if $theme_config->fluid_width}-fluid{/if}">
-
 	{if $display_mode == 'cloud' and isset($tags)}
 	    {if $theme_config->tag_cloud_type == 'basic'}
 		<div id="tagCloud">
-		    {foreach from=$tags item=tag}
+		    {foreach $tags as $tag}
 			<span><a href="{$tag.URL}" class="tagLevel{$tag.level}" title="{$tag.counter|translate_dec:'%d photo':'%d photos'}">{$tag.name}</a></span>
 		    {/foreach}
 		</div>
 	    {else}
-	       <div id="tagCloudCanvas">
-		   {foreach $tags as $tag}
-		       <span data-weight="{$tag.counter}"><a href="{$tag.URL}">{$tag.name}</a></span>
-		   {/foreach}
-	       </div>
-	       <div id="tagCloudGradientStart"></div>
-	       <div id="tagCloudGradientEnd"></div>
+		<div id="tagCloudCanvas">
+		    {foreach $tags as $tag}
+			<span data-weight="{$tag.counter}"><a href="{$tag.URL}">{$tag.name}</a></span>
+		    {/foreach}
+		</div>
+		<div id="tagCloudGradientStart"></div>
+		<div id="tagCloudGradientEnd"></div>
 	    {/if}
 	{/if}
 
