@@ -18,8 +18,8 @@ body {
     width: 1600px;
   }
 }
-@media (min-width: 3000px) {  
-  .container { 
+@media (min-width: 3000px) {
+  .container {
    width: 2800px;
   }
 }
@@ -58,9 +58,13 @@ body {
 #calendar-nav {
   min-height: 55px;
   text-align: center;
-}
-#calendar-nav>a {
-  margin-bottom: 10px;
+
+  .btn-group {
+      flex-wrap: wrap;
+  }
+  & > a {
+      margin-bottom: 10px;
+  }
 }
 #calendar-nav-buttons table {
   padding-top: 10px;

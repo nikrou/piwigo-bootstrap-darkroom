@@ -4,7 +4,7 @@
     {define_derivative name='album_derivative_params_square' type=IMG_SQUARE}
 
     {foreach $category_thumbnails as $cat}
-	{if $theme_config->category_wells == 'never' || ($theme_config->category_wells == 'mobile_only' && get_device() == 'desktop')}
+	{if $theme_config->category_wells == 'never'}
 	    {assign var="album_derivative" value=$pwg->derivative($album_derivative_params, $cat.representative.src_image)}
 	    {* this needs a fixed size else it messes up the grid on tablets *}
 	    {include file="grid_classes.tpl" width=260 height=180}

@@ -132,9 +132,6 @@
 		 {if $theme_config->social_pinterest}
                  {literal}{id:'pinterest', label:'<i class="fab fa-pinterest fa-2x fa-fw"></i> Pin it', url:'http://www.pinterest.com/pin/create/button/?url={{url}}&media=' + window.location + '/../{{raw_image_url}}'},{/literal}
 		 {/if}
-		 {if get_device() == 'mobile'}
-                 {literal}{id:'whatsapp', label:'<i class="fab fa-whatsapp fa-2x fa-fw"></i> Share via WhatsApp', url:'whatsapp://send?text={{url}}', download:true},{/literal}
-		 {/if}
 		 {literal}{id:'download', label:'<i class="fas fa-cloud-download-alt fa-2x fa-fw"></i> Download image', url:'{{raw_image_url}}', download:true}{/literal}
              ],
 	     {/if}
@@ -277,7 +274,7 @@
              css : ({literal}{'position': 'absolute','width':vsize.w, 'height':vsize.h}{/literal})
 
          });
-         v.one('{if get_device() == 'desktop'}click{else}tap{/if}', (function(event) {
+         v.one('click tap', (function(event) {
 	     event.preventDefault();
 	     var playerCode = '<video id="pswp-video" width="100%" height="auto" autoplay controls>' +
 			      '<source src="'+vfile+'" type="video/mp4"></source>' +
@@ -359,9 +356,7 @@
          event.preventDefault;
          startPhotoSwipe();
      });
-     {if get_device() != 'desktop'}
      $('#theImage').on('doubletap', startPhotoSwipe);
-     {/if}
      {if isset($U_SLIDESHOW_START)}
      $('#startSlideshow').on('click touchstart', function() {
          startPhotoSwipe();

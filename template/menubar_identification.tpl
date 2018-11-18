@@ -1,7 +1,6 @@
 <li class="nav-item dropdown" id="identificationDropdown">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{if isset($USERNAME)}<i class="fas fa-user"></i> {$USERNAME}{else}{'Login'|translate}{/if}</a>
     <div class="dropdown-menu dropdown-menu-right" role="menu">
-	{strip}
 	{if isset($USERNAME)}
             <div class="dropdown-header">{'Hello'|translate} {$USERNAME}!</div>
             <div class="dropdown-divider"></div>
@@ -40,6 +39,5 @@
 	{if isset($U_ADMIN)}
             <a class="dropdown-item" href="{$U_ADMIN}" title="{'available for administrators only'|translate}">{'Administration'|translate}</a>
 	{/if}
-{/strip}
     </div>
 </li>

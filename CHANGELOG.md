@@ -1,3 +1,7 @@
+Simple Responsive 0.3.0 - 2018-11-18
+====================================
+* Release compatible with Phyxo 1.9
+
 Simple Responsive 0.3.0 - 2018-07-22
 ====================================
 * Fix issue preventing EXIF metadatas to be displayed.

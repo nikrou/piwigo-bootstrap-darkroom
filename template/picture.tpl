@@ -46,6 +46,7 @@
 
     <!-- footer_assets (INFO_CARDS) -->
     <script>
+     var phyxo_update_your_rating = "{'Update your rating'|translate|@escape:'javascript'}";
      var phyxo_rating_1 = "{'%d rate'|translate|@escape:'javascript'}";
      var phyxo_ratings = "{'%d rates'|translate|@escape:'javascript'}";
      var phyxo_root_url = "{$ROOT_URL}";

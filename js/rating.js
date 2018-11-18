@@ -5,15 +5,19 @@ _pwgRatingAutoQueue.push({
     image_id: phyxo_image_id,
     onSuccess : function(rating) {
 	var e = document.getElementById("updateRate");
-	if (e) e.innerHTML = "{'Update your rating'|translate|@escape:'javascript'}";
+	if (e) {
+	    e.innerHTML = phyxo_update_your_rating;
+	}
 	e = document.getElementById("ratingScore");
-	if (e) e.innerHTML = rating.score;
+	if (e) {
+	    e.innerHTML = rating.score;
+	}
 	e = document.getElementById("ratingCount");
 	if (e) {
 	    if (rating.count == 1) {
-		e.innerHTML = phyxo_rating_1.replace( "%d", rating.count);
+		e.innerHTML = phyxo_rating_1.replace("%d", rating.count);
 	    } else {
-		e.innerHTML = phyxo_ratings.replace( "%d", rating.count);
+		e.innerHTML = phyxo_ratings.replace("%d", rating.count);
 	    }
 	}
 	$('#averageRate').find('span').each(function() {

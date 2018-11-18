@@ -108,13 +108,28 @@
 
      function addToCaddie(aElement, rootUrl, id) {
          if (aElement.disabled) return;
-         aElement.disabled=true;
+         aElement.disabled = true;
+	 const alert_box = document.querySelector('.alert');
+	 const classes = alert_box.getAttribute('class');
+
          var y = new PwgWS(rootUrl);
-         y.callService("pwg.caddie.add", id, {
-	     onFailure: function(num, text) { alert(num + " " + text); document.location=aElement.href; },
-	     onSuccess: function(result) { aElement.disabled = false; }
+         y.callService("pwg.caddie.add", { image_id: id }, {
+	     onFailure: function(num, text) {
+		 alert_box.append(num + " " + text);
+		 alert_box.setAttribute('class', classes + ' danger');
+		 alert_box.style.display = 'block';
+	     },
+	     onSuccess: function(result) {
+		 aElement.disabled = false;
+	     }
          });
      }
     </script>
     <script src="{$ROOT_URL}themes/legacy/js/scripts.js"></script>
 </nav>
+
+<div class="alert alert-dismissible fade show" role="alert" style="display:none">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="fa fa-times"></i>
+    </button>
+</div>
